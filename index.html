@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" >
     <title>Document</title>
 </head>
-<body>
+<body onload="OnClose()">
     
 <div class="center-popup" id="c-popup">
 
@@ -51,7 +51,7 @@
         <input class="box-p" type="text" id="ocena6end" onchange="this.value = this.value.replace(/%/g, '')"> <br>
         
         
-        <input type="button" class="box-button-p" id="OKButton" value="OK" onclick="closer()" > <br>
+        <input type="button" class="box-button-p" id="OKButton" value="OK" onclick="toggler()" > <br>
         <input type="button" onclick="DefaultValGrades()">
         
     </div>
@@ -76,19 +76,41 @@
 </div>
         
 <script>
+function OnClose(){
+   $(centerpopup).addClass("div-close");
+}
 
 
 function closed(){
-   $(centerpopup).toggleClass("div-close");
+   
+   $(centerpopup).removeClass("div-close");
    $(centerbox).addClass("puff-in-center");
+   
+
+   $(centerbox).removeClass("puff-out-center"); 
+   
+   $(centerpopup).removeClass("slide-out-bck-center");
+
+   }
+
+   
+function toggler(){
+   $(centerbox).removeClass("puff-in-center");
+   $(centerbox).addClass("puff-out-center"); 
+   
+   $(centerpopup).addClass("slide-out-bck-center");
+   
+   setTimeout(function(){
+      $(centerpopup).addClass("div-close")
+
+
+}, 1000);
+   
+
     }
 
 
-    function closer(){
-   $(centerpopup).toggleClass("div-close");
-   $(centerbox).toggleClass("puff-in-center");
-    }
-
+ 
 
 /*##################### LICZENIE #####################*/
 function liczenie(){
@@ -629,12 +651,26 @@ console.log("wieksze 100");
 } 
 
 
-
 if ( parseInt(cel_end_val) <= parseInt(cel_start_val)) {
 
 $(cel_end).removeClass("dobre_dane");
 $(cel_end).addClass("bledne_dane");
-console.log("mniejsze niz cele nd");
+
+ $(cel_start).removeClass("dobre_dane");
+ $(cel_start).addClass("bledne_dane");
+
+
+ 
+console.log("CEL END JEST MNIEJSZY NIz CEL START");
+} else {
+
+   $(cel_end).removeClass("bledne_dane");
+   $(cel_end).addClass("dobre_dane");
+
+   $(cel_start).removeClass("bledne_dane");
+   $(cel_start).addClass("dobre_dane");
+
+   console.log("CEL END JEST WIEKSZY NIz CEL START");
 }
 
 if ( parseInt(cel_end_val) == 100 ) {
@@ -647,20 +683,11 @@ console.log("rowne  100");
 
 
 
-if(parseInt(cel_end_val) <= parseInt(cel_start_val) ) {
+if(parseInt(cel_start_val) <= parseInt(bdb_end_val) ) {
    $(cel_start).removeClass("dobre_dane");
    $(cel_start).addClass("bledne_dane");
    console.log("wieksze od prawej");
 } 
-else 
-{
-   $(cel_start).removeClass("bledne_dane");
-   $(cel_start).addClass("dobre_dane");
-
-  
-}
-
-
 
 
 
@@ -668,6 +695,160 @@ else
 
 
    /* BDB */
+
+
+   if(parseInt(bdb_end_val) <= parseInt(bdb_start_val) ) {
+   $(bdb_end).removeClass("dobre_dane");
+   $(bdb_end).addClass("bledne_dane");
+   console.log("wieksze od prawej");
+} 
+else 
+{
+   $(bdb_end).removeClass("bledne_dane");
+   $(bdb_end).addClass("dobre_dane");
+
+  
+}
+
+if(parseInt(bdb_end_val) >= parseInt(cel_start_val) ) {
+   $(bdb_end).removeClass("dobre_dane");
+   $(bdb_end).addClass("bledne_dane");
+   console.log("wieksze od prawej");
+} 
+else 
+{
+   $(bdb_end).removeClass("bledne_dane");
+   $(bdb_end).addClass("dobre_dane");
+
+  
+}
+
+
+if(parseInt(bdb_start_val) >= parseInt(bdb_end_val) ) {
+   $(bdb_start).removeClass("dobre_dane");
+   $(bdb_start).addClass("bledne_dane");
+   console.log("wieksze od prawej");
+} 
+else 
+{
+   $(bdb_start).removeClass("bledne_dane");
+   $(bdb_start).addClass("dobre_dane");
+
+  
+}
+
+
+if(parseInt(bdb_start_val) <= parseInt(db_end_val) ) {
+   $(bdb_start).removeClass("dobre_dane");
+   $(bdb_start).addClass("bledne_dane");
+  
+} 
+
+
+
+
+
+
+
+/* DB */
+
+
+
+if(parseInt(db_end_val) <= parseInt(db_start_val)) {
+   $(db_end).removeClass("dobre_dane");
+   $(db_end).addClass("bledne_dane");
+} else {
+
+   $(db_end).removeClass("bledne_dane");
+   $(db_end).addClass("dobre_dane");
+
+}
+
+
+if(parseInt(db_end_val) >= parseInt(bdb_start_val)) {
+   $(db_end).removeClass("dobre_dane");
+   $(db_end).addClass("bledne_dane");
+} 
+
+
+
+
+if(parseInt(db_start_val) >= parseInt(db_end_val))
+{
+   $(db_start).removeClass("dobre_dane");
+   $(db_start).addClass("bledne_dane");
+} else {
+   $(db_start).removeClass("bledne_dane")
+   $(db_start).addClass("dobre_dane");
+}
+
+if(parseInt(db_start_val) <= parseInt(dst_end_val))
+{
+   $(db_start).removeClass("dobre_dane");
+   $(db_start).addClass("bledne_dane");
+} 
+
+
+
+
+/* DST */
+
+if(parseInt( dst_end_val ) >= parseInt(db_start_val) ) {
+   $(dst_end).removeClass("dobre_dane");
+   $(dst_end).addClass("bledne_dane");
+}
+
+
+if(parseInt( dst_end_val ) <= parseInt(dst_start_val) ) {
+   $(dst_end).removeClass("dobre_dane");
+   $(dst_end).addClass("bledne_dane");
+} else {
+
+   $(dst_end).removeClass("bledne_dane");
+   $(dst_end).addClass("dobre_dane");
+}
+
+
+/* DOP */
+
+if(parseInt(dst_start_val) <= parseInt(dop_end_val)) {
+
+   $(dst_start).removeClass("dobre_dane");
+   $(dst_start).addClass("bledne_dane");
+
+} 
+
+
+if(parseInt(dop_end_val) <= parseInt(dop_start_val)){
+   $(dop_end).removeClass("dobre_dane");
+   $(dop_end).addClass("bledne_dane");
+}
+
+
+if(parseInt(dop_start_val) <= parseInt(ndst_end_val)){
+   $(dop_start).removeClass("dobre_dane");
+   $(dop_start).addClass("bledne_dane");
+   $(ndst_end).removeClass("dobre_dane");
+$(ndst_end).addClass("bledne_dane");
+}
+
+
+
+
+
+/* NDST */
+
+if  (parseInt(ndst_end_val) <= parseInt(ndst_start_val)) {
+
+$(ndst_start).removeClass("dobre_dane");
+$(ndst_start).addClass("bledne_dane");
+
+
+$(ndst_end).removeClass("dobre_dane");
+$(ndst_end).addClass("bledne_dane");
+   
+
+}
 
 
 /* KONIEC sprawdzania czy dane z inputów się nie dublują */

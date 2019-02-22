@@ -41,11 +41,14 @@ background-color: #282E33;
     color: white;
     overflow: hidden;
     
+    
 }
 .div-close {
     display:none;
     
 }
+
+
 
 .popup {
     width: 400px;
@@ -58,6 +61,7 @@ background-color: #282E33;
     overflow: hidden;
     text-align: center;
     align-content: center;
+    
 }
 
 .box {
@@ -215,6 +219,11 @@ padding: 100px;
 
 .puff-out-center{animation:puff-out-center 1s cubic-bezier(.165,.84,.44,1.000) both}
 
+.slide-out-bck-center {
+	-webkit-animation: slide-out-bck-center 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: slide-out-bck-center 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
 
  @keyframes shake-horizontal{0%,100%{transform:translateX(0)}10%,30%,50%,70%{transform:translateX(-10px)}20%,40%,60%{transform:translateX(10px)}80%{transform:translateX(8px)}90%{transform:translateX(-8px)}}
 
@@ -223,3 +232,31 @@ padding: 100px;
 
 
  @keyframes puff-in-center{0%{transform:scale(2);filter:blur(2px);opacity:0}100%{transform:scale(1);filter:blur(0);opacity:1}}
+
+
+
+@-webkit-keyframes slide-out-bck-center {
+    0% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateZ(-1100px);
+              transform: translateZ(-1100px);
+      opacity: 0;
+    }
+  }
+  @keyframes slide-out-bck-center {
+    0% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateZ(-1100px);
+              transform: translateZ(-1100px);
+      opacity: 0;
+    }
+  }
+  
