@@ -17,9 +17,7 @@
 
         <div class="txt-p">Ocena niedostateczna</div>
         <input class="box-p" type="text" id="ocena1start" onchange="this.value = this.value.replace(/%/g, '')"/>
-       
-
-        
+           
 
          <i class="fas fa-minus"style="z-index: 22;"></i> 
          <input class="box-p" type="text" id="ocena1end" onchange="this.value = this.value.replace(/%/g, '')"> <br>
@@ -55,7 +53,7 @@
         
         <input type="button" class="box-button-p" id="OKButton" value="OK" onclick="closer()" > <br>
         <input type="button" onclick="DefaultValGrades()">
-        SDDDDDDDDDDDDDDDDDDDDD
+        
     </div>
 
 </div>
@@ -273,21 +271,37 @@ var centerpopup = document.getElementById("c-popup");
     cel_start.addEventListener('input', CheckOverlaps);
 
     cel_end.addEventListener('input', CheckValidationGrades);
+    cel_end.addEventListener('input', CheckOverlaps);
 
     bdb_start.addEventListener('input', CheckValidationGrades);
+    bdb_start.addEventListener('input', CheckOverlaps);  
+
     bdb_end.addEventListener('input', CheckValidationGrades);
+    bdb_end.addEventListener('input', CheckOverlaps);  
 
     db_start.addEventListener('input', CheckValidationGrades);
+    db_start.addEventListener('input', CheckOverlaps);  
+    
     db_end.addEventListener('input', CheckValidationGrades);
+    db_end.addEventListener('input', CheckOverlaps);  
 
     dst_start.addEventListener('input', CheckValidationGrades);
+    dst_start.addEventListener('input', CheckOverlaps);    
+
     dst_end.addEventListener('input', CheckValidationGrades);
+    dst_end.addEventListener('input', CheckOverlaps);  
 
     dop_start.addEventListener('input', CheckValidationGrades);
+    dop_start.addEventListener('input', CheckOverlaps);  
+
     dop_end.addEventListener('input', CheckValidationGrades);
+    dop_end.addEventListener('input', CheckOverlaps);  
     
     ndst_start.addEventListener('input', CheckValidationGrades);
+    ndst_start.addEventListener('input', CheckOverlaps);  
+
     ndst_end.addEventListener('input', CheckValidationGrades);
+    ndst_end.addEventListener('input', CheckOverlaps);
 
 
 /*########## KONIEC ZMIENNYCH ####################*/
@@ -502,17 +516,6 @@ else {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
  if (regex.test(dop_start_val) == false ) {
     console.log("niezgodne z regex");
     $(dop_start).addClass("bledne_dane");
@@ -533,8 +536,6 @@ else {
 
 
 
-
-
  if (regex.test(dop_end_val) == false ) {
     console.log("niezgodne z regex");
     $(dop_end).addClass("bledne_dane");
@@ -550,10 +551,6 @@ else {
     $(dop_end).removeClass("bledne_dane");
     $(dop_end).addClass("dobre_dane");
  }
-
-
-
-
 
 
 
@@ -599,8 +596,7 @@ else {
 
 function CheckOverlaps() {
 
-
-   var cel_start_val = document.getElementById("ocena6start").value.trim();
+    var cel_start_val = document.getElementById("ocena6start").value.trim();
     var cel_end_val = document.getElementById ("ocena6end").value.trim();
 
     var bdb_start_val = document.getElementById("ocena5start").value.trim();
@@ -622,13 +618,56 @@ function CheckOverlaps() {
 
    /* Sprawdzanie czy dane z inputów się nie dublują */
 
- if (cel_end_val >= cel_start_val || cel_start_val <= bdb_start_val || cel_start_val <= bdb_end_val || cel_start_val <= db_start_val || cel_start_val <= db_end_val || cel_start_val <= dst_start_val || cel_start_val <= dst_end_val || cel_start_val <= dop_start_val || cel_start_val <= dop_end_val || cel_start_val <= ndst_start_val || cel_start_val <= ndst_end_val  ) {
 
-$(cel_start).removeClass("dobre_dane");
-$(cel_start).addClass("bledne_dane");
 
-console.log("dublija się");
+   /* CEL */
+if (parseInt(cel_end_val) > 100 ) {
+
+$(cel_end).removeClass("dobre_dane");
+$(cel_end).addClass("bledne_dane");
+console.log("wieksze 100");
 } 
+
+
+
+if ( parseInt(cel_end_val) <= parseInt(cel_start_val)) {
+
+$(cel_end).removeClass("dobre_dane");
+$(cel_end).addClass("bledne_dane");
+console.log("mniejsze niz cele nd");
+}
+
+if ( parseInt(cel_end_val) == 100 ) {
+
+$(cel_end).addClass("dobre_dane");
+$(cel_end).removeClass("bledne_dane");
+console.log("rowne  100");
+} 
+
+
+
+
+if(parseInt(cel_end_val) <= parseInt(cel_start_val) ) {
+   $(cel_start).removeClass("dobre_dane");
+   $(cel_start).addClass("bledne_dane");
+   console.log("wieksze od prawej");
+} 
+else 
+{
+   $(cel_start).removeClass("bledne_dane");
+   $(cel_start).addClass("dobre_dane");
+
+  
+}
+
+
+
+
+
+
+
+
+   /* BDB */
 
 
 /* KONIEC sprawdzania czy dane z inputów się nie dublują */
@@ -664,7 +703,7 @@ else if(liczba_punktow.length == 0){
  }
   
 else {
-    console.log("zzoden");
+    console.log("zgodne z regex");
     $(input_1).removeClass("bledne_dane");
     $(input_1).addClass("dobre_dane");
  }
