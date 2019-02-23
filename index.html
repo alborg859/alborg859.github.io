@@ -16,7 +16,7 @@
     <div class="popup" id="popup-box">
 
         <div class="txt-p">Ocena niedostateczna</div>
-        <input class="box-p" type="text" id="ocena1start" onchange="this.value = this.value.replace(/%/g, '')"/>
+        <input readonly class="box-p" type="text" id="ocena1start" style="cursor: not-allowed;" value="0" onchange="this.value = this.value.replace(/%/g, '')"/>
            
 
          <i class="fas fa-minus"style="z-index: 22;"></i> 
@@ -48,10 +48,10 @@
         <div class="txt-p">Ocena celująca</div>
         <input class="box-p" type="text" id="ocena6start" onchange="this.value = this.value.replace(/%/g, '')"> 
         <i class="fas fa-minus"style="z-index: 22;"></i> 
-        <input class="box-p" type="text" id="ocena6end" onchange="this.value = this.value.replace(/%/g, '')"> <br>
+        <input readonly class="box-p" style="cursor: not-allowed;" value="100" type="text" id="ocena6end"  onchange="this.value = this.value.replace(/%/g, '')"> <br>
         
         
-        <input type="button" class="box-button-p" id="OKButton" value="OK" onclick="toggler()" > <br>
+        <input type="button" class="box-button-p" id="OKButton" value="OK" onclick="save_settings()" > <br>
         <input type="button" onclick="DefaultValGrades()">
         
     </div>
@@ -251,6 +251,24 @@ function DefaultValGrades() {
    ndst_start.value = 0;
    ndst_end.value = 39;
 
+
+   $(cel_end).addClass("dobre_dane");
+   $(cel_start).addClass("dobre_dane");
+
+   $(bdb_end).addClass("dobre_dane");
+   $(bdb_start).addClass("dobre_dane");
+
+   $(db_end).addClass("dobre_dane");
+   $(db_start).addClass("dobre_dane");
+
+   $(dst_end).addClass("dobre_dane");
+   $(dst_start).addClass("dobre_dane");
+
+   $(dop_end).addClass("dobre_dane");
+   $(dop_start).addClass("dobre_dane");
+
+   $(ndst_end).addClass("dobre_dane");
+   $(ndst_start).addClass("dobre_dane");
   
    
 }
@@ -643,12 +661,6 @@ function CheckOverlaps() {
 
 
    /* CEL */
-if (parseInt(cel_end_val) > 100 ) {
-
-$(cel_end).removeClass("dobre_dane");
-$(cel_end).addClass("bledne_dane");
-console.log("wieksze 100");
-} 
 
 
 if ( parseInt(cel_end_val) <= parseInt(cel_start_val)) {
@@ -843,18 +855,260 @@ if  (parseInt(ndst_end_val) <= parseInt(ndst_start_val)) {
 $(ndst_start).removeClass("dobre_dane");
 $(ndst_start).addClass("bledne_dane");
 
-
 $(ndst_end).removeClass("dobre_dane");
 $(ndst_end).addClass("bledne_dane");
-   
-
 }
 
 
 /* KONIEC sprawdzania czy dane z inputów się nie dublują */
+}
 
+
+
+
+
+/*POCZĄTEK zaawansowanego sprawdzania inputów*/
+
+
+
+function save_settings(){
+    
+    var cel_start_val = document.getElementById("ocena6start").value.trim();
+    var cel_end_val = document.getElementById ("ocena6end").value.trim();
+
+    var bdb_start_val = document.getElementById("ocena5start").value.trim();
+    var bdb_end_val = document.getElementById ("ocena5end").value.trim();
+
+    var db_start_val = document.getElementById("ocena4start").value.trim();
+    var db_end_val = document.getElementById ("ocena4end").value.trim();
+
+    var dst_start_val = document.getElementById("ocena3start").value.trim();
+    var dst_end_val = document.getElementById ("ocena3end").value.trim();
+
+    var dop_start_val = document.getElementById("ocena2start").value.trim();
+    var dop_end_val = document.getElementById ("ocena2end").value.trim();
+
+    var ndst_start_val = document.getElementById("ocena1start").value.trim();
+    var ndst_end_val = document.getElementById ("ocena1end").value.trim();
+
+      /*CEL START -! BDB END*/
+    if(cel_start_val - bdb_end_val != 1){
+         console.log("Nie zgadza mi sie")
+         $(cel_start).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(cel_start).removeClass('shake-horizontal');
+            }, 1000);
+      $(cel_start).removeClass("dobre_dane");  
+      $(cel_start).addClass("bledne_dane");   
+        $(bdb_end).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(bdb_end).removeClass('shake-horizontal');
+            }, 1000);
+            $(bdb_end).removeClass("dobre_dane");
+      $(bdb_end).addClass("bledne_dane");
+    }
+  
+    /*BDB START -! DB END*/
+    if(bdb_start_val - db_end_val != 1){
+         console.log("Nie zgadza mi sie")
+         $(bdb_start).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(bdb_start).removeClass('shake-horizontal');
+            }, 1000);
+            $(bdb_start).removeClass("dobre_dane"); 
+      $(bdb_start).addClass("bledne_dane");   
+        $(db_end).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(db_end).removeClass('shake-horizontal');
+            }, 1000);
+            $(db_end).removeClass("dobre_dane");
+      $(db_end).addClass("bledne_dane");
+    }
+
+    /*DB START -! DST END*/
+    if(db_start_val - dst_end_val != 1){
+         console.log("Nie zgadza mi sie")
+         $(db_start).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(db_start).removeClass('shake-horizontal');
+            }, 1000);
+            $(db_start).removeClass("dobre_dane");
+      $(db_start).addClass("bledne_dane");   
+        $(dst_end).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(dst_end).removeClass('shake-horizontal');
+            }, 1000);
+      console.log("xd");
+      $(dst_end).removeClass("dobre_dane");
+      $(dst_end).addClass("bledne_dane");
+    }
+
+    /*DST START -! DOP END*/
+
+    if(dst_start_val - dop_end_val != 1){
+         console.log("Nie zgadza mi sie")
+         $(dst_start).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(dst_start).removeClass('shake-horizontal');
+            }, 1000);
+            $(dst_start).removeClass("dobre_dane");
+      $(dst_start).addClass("bledne_dane");   
+        $(dop_end).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(dop_end).removeClass('shake-horizontal');
+            }, 1000);
+      console.log("xd");
+      $(dop_end).removeClass("dobre_dane");
+      $(dop_end).addClass("bledne_dane");
+    }
+
+
+    /*DOP START -! NDST END*/
+
+    if(dop_start_val - ndst_end_val != 1){
+         console.log("Nie zgadza mi sie")
+         $(dop_start).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(dop_start).removeClass('shake-horizontal');
+            }, 1000);
+            $(dop_start).removeClass("dobre_dane");
+      $(dop_start).addClass("bledne_dane");   
+        $(ndst_end).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(ndst_end).removeClass('shake-horizontal');
+            }, 1000);
+      console.log("xd");
+      $(ndst_end).removeClass("dobre_dane");
+      $(ndst_end).addClass("bledne_dane");
+    }
+
+    /*############# Czy równe?????###########*/
+    
+    /* CELE */
+    if(100 <= cel_start_val){
+         console.log(cel_end_val);
+         console.log(cel_start_val);
+         $(cel_start).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(cel_start).removeClass('shake-horizontal');
+            }, 1000);
+      $(cel_start).removeClass("dobre_dane");  
+      $(cel_start).addClass("bledne_dane");   
+        $(cel_end).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(cel_end).removeClass('shake-horizontal');
+            }, 1000);
+            $(cel_end).removeClass("dobre_dane");
+      $(cel_end).addClass("bledne_dane");
+    }
+
+      /* BDBY */
+    if(bdb_end_val <= bdb_start_val){
+         console.log("Nie zgadza mi sie")
+         $(bdb_start).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(bdb_start).removeClass('shake-horizontal');
+            }, 1000);
+      $(bdb_start).removeClass("dobre_dane");  
+      $(bdb_start).addClass("bledne_dane");   
+        $(bdb_end).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(bdb_end).removeClass('shake-horizontal');
+            }, 1000);
+            $(bdb_end).removeClass("dobre_dane");
+      $(bdb_end).addClass("bledne_dane");
+    }
+
+
+
+    /* DBY */
+    if(db_end_val <= db_start_val){
+         console.log("Nie zgadza mi sie")
+         $(db_start).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(db_start).removeClass('shake-horizontal');
+            }, 1000);
+      $(db_start).removeClass("dobre_dane");  
+      $(db_start).addClass("bledne_dane");   
+        $(db_end).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(db_end).removeClass('shake-horizontal');
+            }, 1000);
+            console.log("db są równe ?xd")
+            $(db_end).removeClass("dobre_dane");
+      $(db_end).addClass("bledne_dane");
+    }
+
+        /* DSTY */
+        if(dst_end_val <= dst_start_val){
+         console.log("Nie zgadza mi sie")
+         $(dst_start).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(dst_start).removeClass('shake-horizontal');
+            }, 1000);
+      $(dst_start).removeClass("dobre_dane");  
+      $(dst_start).addClass("bledne_dane");   
+        $(dst_end).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(dst_end).removeClass('shake-horizontal');
+            }, 1000);
+            $(dst_end).removeClass("dobre_dane");
+      $(dst_end).addClass("bledne_dane");
+    }
+
+
+
+    /* DOPYY */
+    if(dop_end_val <= dop_start_val){
+         console.log("Nie zgadza mi sie")
+         $(dop_start).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(dop_start).removeClass('shake-horizontal');
+            }, 1000);
+      $(dop_start).removeClass("dobre_dane");  
+      $(dop_start).addClass("bledne_dane");   
+        $(dop_end).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(dop_end).removeClass('shake-horizontal');
+            }, 1000);
+            $(dop_end).removeClass("dobre_dane");
+      $(dop_end).addClass("bledne_dane");
+    }
+
+
+
+    /* NDSTYY */
+    if(ndst_end_val <= ndst_start_val){
+         console.log("Nie zgadza mi sie")
+         $(ndst_start).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(ndst_start).removeClass('shake-horizontal');
+            }, 1000);
+      $(ndst_start).removeClass("dobre_dane");  
+      $(ndst_start).addClass("bledne_dane");   
+        $(ndst_end).addClass("shake-horizontal");
+            setTimeout(function() {
+            $(ndst_end).removeClass('shake-horizontal');
+            }, 1000);
+            $(ndst_end).removeClass("dobre_dane");
+      $(ndst_end).addClass("bledne_dane");
+    }
+
+
+
+
+
+    if(dop_start_val - ndst_end_val == 1 && dst_start_val - dop_end_val == 1 && db_start_val - dst_end_val == 1 && bdb_start_val - db_end_val == 1 && cel_start_val - bdb_end_val == 1 && dst_start_val < dst_end_val && db_start_val < db_end_val && dop_start_val < dop_end_val && cel_start_val < 100 && ndst_start_val < ndst_end_val && bdb_start_val < bdb_end_val &&  cel_end_val != cel_start_val && bdb_end_val != bdb_start_val && db_end_val != db_start_val && dst_end_val != dst_start_val && dop_end_val != dop_start_val && ndst_end_val != ndst_start_val ) {
+      console.log("DOJEBANY WARUNEK SPEŁNOIONY");
+      toggler();
+    }
 
 }
+
+
+
+
+
 
 
 function CheckValidation() {
