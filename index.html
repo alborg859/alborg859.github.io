@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" >
-    <title>Document</title>
+    <title>Karachan</title>
 </head>
 <body onload="OnClose()">
     
@@ -17,39 +17,77 @@
 
         <div class="txt-p">Ocena niedostateczna</div>
         <input readonly class="box-p" type="text" id="ocena1start" style="cursor: not-allowed;" value="0" onchange="this.value = this.value.replace(/%/g, '')"/>
+        <input class="jeden1" type="text" id="ikonaprocent" value="%" disabled="true" >
            
 
          <i class="fas fa-minus"style="z-index: 22;"></i> 
          <input class="box-p" type="text" id="ocena1end" onchange="this.value = this.value.replace(/%/g, '')"> <br>
+         <input class="jeden2" type="text" id="ikonaprocent" value="%" disabled="true" >
         
-        
+
+
+
+
          <div class="txt-p">Ocena dopuszczająca</div>
         <input class="box-p" type="text" id="ocena2start" onchange="this.value = this.value.replace(/%/g, '')" >
+        <input class="dwa1" type="text" id="ikonaprocent" value="%" disabled="true" >
+
+
+
          <i class="fas fa-minus"style="z-index: 22;"></i> 
          <input class="box-p" type="text" id="ocena2end" onchange="this.value = this.value.replace(/%/g, '')"> <br>
+         <input class="dwa2" type="text" id="ikonaprocent" value="%" disabled="true" >
+
+
 
 
 
         <div class="txt-p">Ocena dostateczna</div>
         <input class="box-p" type="text" id="ocena3start" onchange="this.value = this.value.replace(/%/g, '')"> 
+        <input class="trzy1" type="text" id="ikonaprocent" value="%" disabled="true" >
+
         <i class="fas fa-minus"style="z-index: 22;"></i> 
         <input class="box-p" type="text" id="ocena3end"onchange="this.value = this.value.replace(/%/g, '')"> <br>
         
+        <input class="trzy2" type="text" id="ikonaprocent" value="%" disabled="true" >
+
+
+
+
+
         <div class="txt-p">Ocena dobra</div>
+        
         <input class="box-p" type="text" id="ocena4start" onchange="this.value = this.value.replace(/%/g, '')">
-         <i class="fas fa-minus"style="z-index: 22;"></i>
+        <input class="cztery1" type="text" id="ikonaprocent" value="%" disabled="true" >
+        
+        <i class="fas fa-minus"style="z-index: 22;"></i>
           <input class="box-p" type="text" id="ocena4end" onchange="this.value = this.value.replace(/%/g, '')"> <br>
+          <input class="cztery2" type="text" id="ikonaprocent" value="%" disabled="true" >
+
+
+
+
+
+
+
           
         <div class="txt-p">Ocena bardzo dobra</div>
         <input class="box-p" type="text" id="ocena5start" onchange="this.value = this.value.replace(/%/g, '')">
-         <i class="fas fa-minus"style="z-index: 22;"></i>
+        <input class="piec1" type="text" id="ikonaprocent" value="%" disabled="true" >
+        
+        <i class="fas fa-minus"style="z-index: 22;"></i>
           <input class="box-p" type="text" id="ocena5end" onchange="this.value = this.value.replace(/%/g, '')"> <br>
-          
+          <input class="piec2" type="text" id="ikonaprocent" value="%" disabled="true" >
+
+
+
         <div class="txt-p">Ocena celująca</div>
         <input class="box-p" type="text" id="ocena6start" onchange="this.value = this.value.replace(/%/g, '')"> 
+        <input class="szesc1" type="text" id="ikonaprocent" value="%" disabled="true" >
+       
         <i class="fas fa-minus"style="z-index: 22;"></i> 
         <input readonly class="box-p" style="cursor: not-allowed;" value="100" type="text" id="ocena6end"  onchange="this.value = this.value.replace(/%/g, '')"> <br>
-        
+        <input class="szesc2" type="text" id="ikonaprocent" value="%" disabled="true" >
         
         <input type="button" class="box-button-p" id="OKButton" value="OK" onclick="save_settings()" > <br>
         <input type="button" onclick="DefaultValGrades()">
@@ -59,10 +97,15 @@
 </div>
 
 
+
+
 <div class="center">
         
         <div class="txt">wpisz otrzymaną liczbe punktów</div>
-       <input class="box" type="text" id="l.op" onchange="this.value = this.value.replace(/,/g, '.')" > <br>
+        
+         <input class="box" type="text" id="l.op" onchange="this.value = this.value.replace(/,/g, '.')" >
+        
+        <br>
 
        <div class="txt">wpisz maksymalną liczbe punktów</div>
         <input class="box" type="text" id="l.mp" onchange="this.value = this.value.replace(/,/g, '.')" >  <br>
@@ -72,12 +115,15 @@
              
         <div class="alert-box" id="alert" ></div>
         
+        <div class="right"></div>
         
 </div>
         
 <script>
 function OnClose(){
    $(centerpopup).addClass("div-close");
+
+   
 }
 
 
@@ -230,7 +276,7 @@ function liczenie(){
 function DefaultValGrades() {
 
 
-
+   
    
    
    cel_start.value = 98;

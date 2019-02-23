@@ -213,6 +213,14 @@ padding: 100px;
     
 }
 
+.right{
+    float: right;
+    background-color: aqua;
+    width: 200px;
+    height: 300px;
+}
+
+
 .puff-in-center{animation:puff-in-center .7s cubic-bezier(.47,0.000,.745,.715) both}
 
 .shake-horizontal{animation:shake-horizontal .8s cubic-bezier(.455,.03,.515,.955) both}
@@ -260,3 +268,161 @@ padding: 100px;
     }
   }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.jeden1{
+    width: 13px;
+    position: fixed;
+    left: 190px;
+    top: 66.5px;
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.226);
+    
+    
+}
+
+.jeden2 {
+    width: 13px;
+    position: fixed;
+    left: 343px;
+    top: 66.5px;
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.226);
+}
+
+
+
+
+.dwa1 {
+    width: 13px;
+    position: fixed;
+    left: 190px;
+    top: 165px;
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.226);
+    
+}
+
+.dwa2 {
+
+
+    width: 13px;
+    position: fixed;
+    left: 343px;
+    top: 165px;
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.226);
+
+}
+
+
+
+
+
+
+.trzy1 {
+
+    width: 13px;
+    position: fixed;
+    left: 190px;
+    top: 263px;
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.226);
+    
+
+}
+.trzy2 {
+
+    width: 13px;
+    position: fixed;
+    left: 343px;
+    top: 263px;
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.226);
+
+
+}
+
+.cztery1{
+    width: 13px;
+    position: fixed;
+    left: 190px;
+    top: 361px;
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.226);
+    
+}
+.cztery2 {
+    width: 13px;
+    position: fixed;
+    left: 343px;
+    top: 361px;
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.226);
+
+}
+
+.piec1 {
+    width: 13px;
+    position: fixed;
+    left: 190px;
+    top: 459px;
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.226);
+}
+
+.piec2{
+    width: 13px;
+    position: fixed;
+    left: 343px;
+    top: 459px;
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.226);
+}
+
+.szesc1{
+    width: 13px;
+    position: fixed;
+    left: 190px;
+    top: 557px;
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.226);
+}
+
+.szesc2{
+    width: 13px;
+    position: fixed;
+    left: 343px;
+    top: 557px;
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.226);
+}
