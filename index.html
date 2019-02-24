@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" >
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet"> 
+
     <title>Karachan</title>
 </head>
 <body onload="OnClose()">
@@ -100,7 +103,7 @@
 
 
 <div class="center">
-        
+       
         <div class="txt">wpisz otrzymaną liczbe punktów</div>
         
          <input class="box" type="text" id="l.op" onchange="this.value = this.value.replace(/,/g, '.')" >
@@ -113,12 +116,18 @@
         <input type="button" class="box-button" value="OK" onclick="liczenie()" > <br>
         <i class="fas fa-cog fa-spin" onclick="closed()" style="margin-top: 1%; font-size: 22px; color: white; cursor: pointer"></i>
              
-        <div class="alert-box" id="alert" ></div>
         
-        <div class="right"></div>
+      
+
+        <div class="grade" id="gradebox" >
+           
+         <div class="gradetxt" id="gradetxt">ocena</div>
+         <div class="gradeprc" id="gradeprc">procent</div>
+
+        </div>
         
 </div>
-        
+
 <script>
 function OnClose(){
    $(centerpopup).addClass("div-close");
@@ -163,8 +172,11 @@ function liczenie(){
    var alert = document.getElementById("alert"); 
    var liczba_punktow = document.getElementById("l.op").value.trim();
    var max_punktów = document.getElementById("l.mp").value.trim();
+   var gradetxt = document.getElementById("gradetxt");
+   var gradeprc = document.getElementById("gradeprc");
+
    
-    console.log("fiutek");
+    
 
    if(isNaN(liczba_punktow)) {
        alert.innerHTML = "Wpisz poprawną wartość chujku !";
@@ -174,9 +186,22 @@ function liczenie(){
         }, 1000);
        
    }
+
+
+   if(liczba_punktow > max_punktów) {
+   
+
+   
+       $(input_1).addClass("shake-horizontal");
+       setTimeout(function() {
+        $(input_1).removeClass('shake-horizontal');
+        }, 1000);
+
+ }
+
    
    else if (liczba_punktow.length == 0){
-    alert.innerHTML = "Wpisz liczbę chujku !";
+    
     $(input_1).addClass("shake-horizontal");
        setTimeout(function() {
         $(input_1).removeClass('shake-horizontal');
@@ -185,7 +210,7 @@ function liczenie(){
    }
    
    if(isNaN(max_punktów)) {
-       alert.innerHTML = "Wpisz poprawną wartość chujku !";
+      
        $(input_2).addClass("shake-horizontal");
        setTimeout(function() {
         $(input_2).removeClass('shake-horizontal');
@@ -194,7 +219,7 @@ function liczenie(){
    }
 
     if (max_punktów.length == 0){
-    alert.innerHTML = "Wpisz liczbę chujku !";
+    
     $(input_2).addClass("shake-horizontal");
        setTimeout(function() {
         $(input_2).removeClass('shake-horizontal');
@@ -207,10 +232,20 @@ function liczenie(){
    /* ################# moment liczenia właściwy #############*/
    else{
    document.getElementById("l.op").innerHTML = liczba_punktow;
-   alert.innerHTML = "";
+  
+   $(gradetxt).addClass("tracking-in-expand");
+   setTimeout(function() {
+        $(gradetxt).removeClass('tracking-in-expand');
+    }, 500);
+
+
+   $(gradeprc).addClass("tracking-in-expand");  
+   setTimeout(function() {
+        $(gradeprc).removeClass('tracking-in-expand');
+    }, 500); 
 
    var wynik = Math.round((liczba_punktow / max_punktów)*100);
-   alert.innerHTML = wynik + "%";
+  
    /*########### Koniec funkcji liczenia ################*/
 
 
@@ -237,35 +272,48 @@ function liczenie(){
 
     var ocena;   
 
-    if(wynik < cel_end_val && wynik > cel_start_val) {
+
+      var gradebox = document.getElementById("gradebox");
+
+    if(wynik <= cel_end_val && wynik >= cel_start_val) {
        ocena = 6;
+
+       $(gradebox).addClass("shadow-inset-center");
     }
 
-    if(wynik < bdb_end_val && wynik > bdb_start_val) {
+    else if(wynik <= bdb_end_val && wynik >= bdb_start_val) {
        ocena = 5;
+       $(gradebox).addClass("shadow-inset-center");
     }
 
-    if(wynik < db_end_val && wynik > db_start_val) {
+    else if(wynik <= db_end_val && wynik >= db_start_val) {
        ocena = 4;
+       $(gradebox).addClass("shadow-inset-center");
     }
 
-    if(wynik < dst_end_val && wynik > dst_start_val) {
+    else if(wynik <= dst_end_val && wynik >= dst_start_val) {
        ocena = 3;
+       $(gradebox).addClass("shadow-inset-center");
     }
 
-    if(wynik < dop_end_val && wynik > dop_start_val) {
+    else if(wynik <= dop_end_val && wynik >= dop_start_val) {
        ocena = 2;
+       $(gradebox).addClass("shadow-inset-center");
     }
 
-    if(wynik < ndst_end_val && wynik > ndst_start_val) {
+    else if(wynik <= ndst_end_val && wynik >= ndst_start_val) {
        ocena = 1;
+       $(gradebox).addClass("shadow-inset-center");
+    } else {
+      $(gradebox).removeClass("shadow-inset-center");
     }
 
 
 
+    gradetxt.innerHTML = ocena + "";
+    gradeprc.innerHTML = wynik + '%';
 
-
-    console.log("twoja ocena z pszyry to " + ocena + " procent to " + wynik + "%");
+    
 
    /* ################# koniec określania oceny #############*/
 }}
@@ -1208,6 +1256,15 @@ else {
     $(input_2).removeClass("bledne_dane");
     $(input_2).addClass("dobre_dane");
     
+ }
+
+
+ if(liczba_punktow > max_punktów) {
+   $(input_1).addClass("bledne_dane");
+    $(input_1).removeClass("dobre_dane");
+
+   
+      
  }
 }
 
