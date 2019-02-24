@@ -233,15 +233,15 @@ function liczenie(){
    else{
    document.getElementById("l.op").innerHTML = liczba_punktow;
   
-   $(gradetxt).addClass("tracking-in-expand");
+   $(gradetxt).addClass("text-focus-in");
    setTimeout(function() {
-        $(gradetxt).removeClass('tracking-in-expand');
+        $(gradetxt).removeClass('text-focus-in');
     }, 500);
 
 
-   $(gradeprc).addClass("tracking-in-expand");  
+   $(gradeprc).addClass("text-focus-in");  
    setTimeout(function() {
-        $(gradeprc).removeClass('tracking-in-expand');
+        $(gradeprc).removeClass('text-focus-in');
     }, 500); 
 
    var wynik = Math.round((liczba_punktow / max_punktów)*100);
