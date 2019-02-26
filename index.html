@@ -7,13 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" >
-
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet"> 
 
     <title>Karachan</title>
 </head>
-<body onload="OnClose()">
-    
+<body onload="OnClose()" class="color-change">
+  
 <div class="center-popup" id="c-popup">
 
     <div class="popup" id="popup-box">
@@ -131,7 +130,7 @@
 <script>
 function OnClose(){
    $(centerpopup).addClass("div-close");
-
+   
    
 }
 
@@ -179,7 +178,7 @@ function liczenie(){
     
 
    if(isNaN(liczba_punktow)) {
-       alert.innerHTML = "Wpisz poprawną wartość chujku !";
+      
        $(input_1).addClass("shake-horizontal");
        setTimeout(function() {
         $(input_1).removeClass('shake-horizontal');
@@ -215,6 +214,10 @@ function liczenie(){
        setTimeout(function() {
         $(input_2).removeClass('shake-horizontal');
         }, 1000);
+
+        console.log("ŹŹLLEE");
+
+        gradetxt.innerHTML = "2137";
        
    }
 
@@ -229,21 +232,21 @@ function liczenie(){
 
 
 
-   /* ################# moment liczenia właściwy #############*/
+  
    else{
    document.getElementById("l.op").innerHTML = liczba_punktow;
   
-   $(gradetxt).addClass("text-focus-in");
+   $(gradetxt).addClass("fade-in");
    setTimeout(function() {
-        $(gradetxt).removeClass('text-focus-in');
-    }, 500);
+        $(gradetxt).removeClass('fade-in');
+    }, 900);
 
 
-   $(gradeprc).addClass("text-focus-in");  
+   $(gradeprc).addClass("fade-in");  
    setTimeout(function() {
-        $(gradeprc).removeClass('text-focus-in');
-    }, 500); 
-
+        $(gradeprc).removeClass('fade-in');
+    }, 900); 
+ /* ################# moment liczenia właściwy #############*/
    var wynik = Math.round((liczba_punktow / max_punktów)*100);
   
    /*########### Koniec funkcji liczenia ################*/
@@ -279,6 +282,9 @@ function liczenie(){
        ocena = 6;
 
        $(gradebox).addClass("shadow-inset-center");
+    } if(wynik > cel_end_val) {
+      ocena = 6;
+      $(gradebox).addClass("shadow-inset-center");
     }
 
     else if(wynik <= bdb_end_val && wynik >= bdb_start_val) {
@@ -313,7 +319,23 @@ function liczenie(){
     gradetxt.innerHTML = ocena + "";
     gradeprc.innerHTML = wynik + '%';
 
-    
+    if(isNaN(max_punktów)) {
+      
+      
+
+      gradetxt.innerHTML = "błąd";
+      gradeprc.innerHTML = "błąd";
+      
+  }
+
+  if(isNaN(liczba_punktow)) {
+      
+      
+
+      gradetxt.innerHTML = "błąd";
+      gradeprc.innerHTML = "błąd";
+     
+ }
 
    /* ################# koniec określania oceny #############*/
 }}
@@ -1209,7 +1231,7 @@ function CheckValidation() {
     /* VARY LOKALNE */
     var liczba_punktow = document.getElementById("l.op").value.trim();
     var max_punktów = document.getElementById("l.mp").value.trim();
-    
+    var handler_1 = document.getElementById("handler1")
 
 
     var regex =  /^[0-9]*([,.][0-9]*)?$/;
@@ -1247,7 +1269,7 @@ else {
    }
   else if(max_punktów.length == 0){
    $(input_2).removeClass("bledne_dane");
-    $(input_2).removeClass("dobre_dane");
+   $(input_2).removeClass("dobre_dane");
 
 
  }
@@ -1259,13 +1281,22 @@ else {
  }
 
 
- if(liczba_punktow > max_punktów) {
-   $(input_1).addClass("bledne_dane");
-    $(input_1).removeClass("dobre_dane");
+if(max_punktów.length != 0 ){
+   console.log("2 rozne od 0" );
 
-   
-      
- }
+   if(parseInt(liczba_punktow) > parseInt(max_punktów))
+   {
+      console.log("1 wieksze od drugiego");
+      $(input_1).removeClass("dobre_dane");
+      $(input_1).addClass("bledne_dane");   
+      $(handler_1).addClass("hint--right  hint--bounce");  
+   }
+   else{
+      $(handler_1).removeClass("hint--right  hint--bounce hint--error");
+   }
+
+}
+
 }
 
 
