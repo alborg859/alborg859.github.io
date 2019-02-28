@@ -8,7 +8,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" >
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet"> 
-
     <title>Karachan</title>
 </head>
 <body onload="OnClose()" class="color-change">
@@ -103,21 +102,19 @@
 
 <div class="center">
        
-        <div class="txt">wpisz otrzymaną liczbe punktów</div>
+        <div  class="txt">wpisz otrzymaną liczbe punktów</div>
         
          <input class="box" type="text" id="l.op" onchange="this.value = this.value.replace(/,/g, '.')" >
         
         <br>
 
        <div class="txt">wpisz maksymalną liczbe punktów</div>
-        <input class="box" type="text" id="l.mp" onchange="this.value = this.value.replace(/,/g, '.')" >  <br>
+        <input  class="box" type="text" id="l.mp" onchange="this.value = this.value.replace(/,/g, '.')" >  <br>
         
         <input type="button" class="box-button" value="OK" onclick="liczenie()" > <br>
         <i class="fas fa-cog fa-spin" onclick="closed()" style="margin-top: 1%; font-size: 22px; color: white; cursor: pointer"></i>
              
-        
-      
-
+          
         <div class="grade" id="gradebox" >
            
          <div class="gradetxt" id="gradetxt">ocena</div>
@@ -128,6 +125,8 @@
 </div>
 
 <script>
+
+
 function OnClose(){
    $(centerpopup).addClass("div-close");
    
@@ -138,22 +137,47 @@ function OnClose(){
 function closed(){
    
    $(centerpopup).removeClass("div-close");
-   $(centerbox).addClass("puff-in-center");
+   
+   
+
+if(window.innerWidth <= 580) {
+//animacja na fona
+$(centerpopup).addClass("slide-in-fwd-center");   
+//
+} else {
+    //na pc
+    $(centerbox).addClass("puff-in-center");
    
 
    $(centerbox).removeClass("puff-out-center"); 
-   
-   $(centerpopup).removeClass("slide-out-bck-center");
+}
+
+
+
+
+$(centerpopup).removeClass("slide-out-bck-center");
 
    }
 
    
 function toggler(){
-   $(centerbox).removeClass("puff-in-center");
+  
+   var i = 20;
+
+   if(window.innerWidth <= 580) { 
+      
+   $(centerpopup).removeClass("slide-in-fwd-center");
+   } else {
+      $(centerbox).removeClass("puff-in-center");
    $(centerbox).addClass("puff-out-center"); 
    
-   $(centerpopup).addClass("slide-out-bck-center");
+   }
    
+
+   
+   $(centerpopup).addClass("slide-out-bck-center");
+
+
    setTimeout(function(){
       $(centerpopup).addClass("div-close")
 
@@ -1224,9 +1248,6 @@ function save_settings(){
 
 
 
-
-
-
 function CheckValidation() {
     /* VARY LOKALNE */
     var liczba_punktow = document.getElementById("l.op").value.trim();
@@ -1313,4 +1334,3 @@ if(max_punktów.length != 0 ){
 
 </body>
 </html>
-
