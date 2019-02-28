@@ -375,12 +375,26 @@ function liczenie(){
     var re = new RegExp(name + "=([^;]+)");
     var value = re.exec(document.cookie);
     return value[1];
+    
+
+   
+
   }
 
   function cookies(e1, s2, e2, s3, e3, s4, e4, s5, e5, s6)
   {
-    document.cookie= "ndst_end=" + parseInt(e1) + ";" + "dop_start=" + parseInt(s2) + ";" + "dop_end=" + parseInt(e2) + ";" +  "dst_start=" + s3 + ";" + "dst_end=" + e3 + ";" + "db_start=" + s4 + ";" + "db_end=" + e4 + ";" + "bdb_start=" + s5 + ";" + "bdb_end=" + e5 + ";" + "cel_start=" + s6 + ";"  ;     
-    console.log(document.cookie);
+   
+
+    document.cookie = "ndst_end =" + e1;
+    document.cookie = "dop_start =" + s2;
+    document.cookie = "dop_end =" + e2;
+    document.cookie = "dsty_start =" + s3;
+    document.cookie = "dsty_end =" + e3;
+    document.cookie = "db_start =" + s4;
+    document.cookie = "db_end =" + e4;
+    document.cookie = "bdb_start =" + s5;
+    document.cookie = "bdb_end =" + e5;
+    document.cookie = "cel_start =" + s6;
   }
 
 
@@ -388,27 +402,24 @@ function liczenie(){
 
 function DefaultValGrades() {
 
-
-
-  
-   
-   cel_start.value = getCookie("cel_start");
+   console.log(document.cookie);
+   cel_start.value = parseInt(getCookie("cel_start"));
    cel_end.value= 100;
 
-   bdb_start.value = getCookie("bdb_start");
-   bdb_end.value=getCookie("bdb_end");
+   bdb_start.value = parseInt(getCookie("bdb_start"));
+   bdb_end.value= parseInt(getCookie("bdb_end"));
 
-   db_start.value=getCookie("db_start");
-   db_end.value=getCookie("db_end");
+   db_start.value= parseInt(getCookie("db_start"));
+   db_end.value=   parseInt(getCookie("db_end"));
 
-   dst_start.value=getCookie("dst_start");
-   dst_end.value= getCookie("dst_end");
+   dst_start.value=parseInt(getCookie("dsty_start"));
+   dst_end.value= parseInt(getCookie("dsty_end"));
 
-   dop_start.value = getCookie("dop_start");
-   dop_end.value = getCookie("dop_end");
+   dop_start.value = parseInt(getCookie("dop_start"));
+   dop_end.value = parseInt(getCookie("dop_end"));
 
    ndst_start.value = 0;
-   ndst_end.value = getCookie("ndst_end");
+   ndst_end.value = parseInt(getCookie("ndst_end"));
 
 
    $(cel_end).addClass("dobre_dane");
@@ -1302,6 +1313,7 @@ function save_settings(){
 
     if(dop_start_val - ndst_end_val == 1 && dst_start_val - dop_end_val == 1 && db_start_val - dst_end_val == 1 && bdb_start_val - db_end_val == 1 && cel_start_val - bdb_end_val == 1 && dst_start_val < dst_end_val && db_start_val < db_end_val && dop_start_val < dop_end_val && cel_start_val < 100 && ndst_start_val < ndst_end_val && bdb_start_val < bdb_end_val &&  cel_end_val != cel_start_val && bdb_end_val != bdb_start_val && db_end_val != db_start_val && dst_end_val != dst_start_val && dop_end_val != dop_start_val && ndst_end_val != ndst_start_val ) {
       console.log("DOJEBANY WARUNEK SPEŁNOIONY");
+      document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
       cookies(ndst_end_val, dop_start_val, dop_end_val, dst_start_val, dst_end_val, db_start_val, db_end_val, bdb_start_val, bdb_end_val, cel_start_val);
       toggler();
     }
