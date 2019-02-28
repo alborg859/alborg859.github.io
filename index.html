@@ -91,8 +91,8 @@
         <input class="szesc2" type="text" id="ikonaprocent" value="%" disabled="true" >
         
         <input type="button" class="box-button-p" id="OKButton" value="OK" onclick="save_settings()" > <br>
-        <input type="button" onclick="DefaultValGrades()">
-        
+        <input type="button" value="COOCK-IES" onclick="DefaultValGrades()">
+        <input type="button" value="masneprogi" onclick="Tomczi()">
     </div>
 
 </div>
@@ -140,7 +140,7 @@ function closed(){
    
    
 
-if(window.innerWidth <= 580) {
+if(window.innerWidth <= 680) {
 //animacja na fona
 $(centerpopup).addClass("slide-in-fwd-center");   
 //
@@ -366,24 +366,85 @@ function liczenie(){
 
 
 
+// #####  Coookies ######## /// 
+
+ 
+
+  function getCookie(name)
+  {
+    var re = new RegExp(name + "=([^;]+)");
+    var value = re.exec(document.cookie);
+    return value[1];
+  }
+
+  function cookies(e1, s2, e2, s3, e3, s4, e4, s5, e5, s6)
+  {
+    document.cookie= "ndst_end=" + parseInt(e1) + ";" + "dop_start=" + parseInt(s2) + ";" + "dop_end=" + parseInt(e2) + ";" +  "dst_start=" + s3 + ";" + "dst_end=" + e3 + ";" + "db_start=" + s4 + ";" + "db_end=" + e4 + ";" + "bdb_start=" + s5 + ";" + "bdb_end=" + e5 + ";" + "cel_start=" + s6 + ";"  ;     
+    console.log(document.cookie);
+  }
+
+
+
 
 function DefaultValGrades() {
 
 
-   
-   
-   
-   cel_start.value = 98;
-   cel_end.value=100;
 
-   bdb_start.value=90;
+  
+   
+   cel_start.value = getCookie("cel_start");
+   cel_end.value= 100;
+
+   bdb_start.value = getCookie("bdb_start");
+   bdb_end.value=getCookie("bdb_end");
+
+   db_start.value=getCookie("db_start");
+   db_end.value=getCookie("db_end");
+
+   dst_start.value=getCookie("dst_start");
+   dst_end.value= getCookie("dst_end");
+
+   dop_start.value = getCookie("dop_start");
+   dop_end.value = getCookie("dop_end");
+
+   ndst_start.value = 0;
+   ndst_end.value = getCookie("ndst_end");
+
+
+   $(cel_end).addClass("dobre_dane");
+   $(cel_start).addClass("dobre_dane");
+
+   $(bdb_end).addClass("dobre_dane");
+   $(bdb_start).addClass("dobre_dane");
+
+   $(db_end).addClass("dobre_dane");
+   $(db_start).addClass("dobre_dane");
+
+   $(dst_end).addClass("dobre_dane");
+   $(dst_start).addClass("dobre_dane");
+
+   $(dop_end).addClass("dobre_dane");
+   $(dop_start).addClass("dobre_dane");
+
+   $(ndst_end).addClass("dobre_dane");
+   $(ndst_start).addClass("dobre_dane");
+  
+   
+}
+
+
+function Tomczi() {
+   cel_start.value =98;
+   cel_end.value= 100;
+
+   bdb_start.value = 90;
    bdb_end.value=97;
 
    db_start.value=70;
    db_end.value=89;
 
    dst_start.value=50;
-   dst_end.value=69;
+   dst_end.value= 69;
 
    dop_start.value = 40;
    dop_end.value = 49;
@@ -410,7 +471,6 @@ function DefaultValGrades() {
    $(ndst_end).addClass("dobre_dane");
    $(ndst_start).addClass("dobre_dane");
   
-   
 }
 
 
@@ -1238,8 +1298,11 @@ function save_settings(){
 
 
 
+
+
     if(dop_start_val - ndst_end_val == 1 && dst_start_val - dop_end_val == 1 && db_start_val - dst_end_val == 1 && bdb_start_val - db_end_val == 1 && cel_start_val - bdb_end_val == 1 && dst_start_val < dst_end_val && db_start_val < db_end_val && dop_start_val < dop_end_val && cel_start_val < 100 && ndst_start_val < ndst_end_val && bdb_start_val < bdb_end_val &&  cel_end_val != cel_start_val && bdb_end_val != bdb_start_val && db_end_val != db_start_val && dst_end_val != dst_start_val && dop_end_val != dop_start_val && ndst_end_val != ndst_start_val ) {
       console.log("DOJEBANY WARUNEK SPEŁNOIONY");
+      cookies(ndst_end_val, dop_start_val, dop_end_val, dst_start_val, dst_end_val, db_start_val, db_end_val, bdb_start_val, bdb_end_val, cel_start_val);
       toggler();
     }
 
