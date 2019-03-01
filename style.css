@@ -230,8 +230,6 @@ padding: 100px;
 
 .grade{
     margin-top: 20px;
-    
-    
     border-radius: 50px;
     width: 200px;
     height: 135px;
@@ -241,6 +239,20 @@ padding: 100px;
     color: rgb(255, 255, 255);
 
     background-color: rgb(34, 39, 44);
+
+}
+
+.grade_progi{
+  margin-top: 20px;
+  border-radius: 50px;
+  width: 350px;
+  height: 135px;
+  justify-content: center;
+  text-align: center;
+  text-anchor: middle;
+  color: rgb(255, 255, 255);
+
+  background-color: rgb(34, 39, 44);
 
 }
 

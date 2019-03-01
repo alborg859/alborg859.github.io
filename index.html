@@ -121,6 +121,15 @@
          <div class="gradeprc" id="gradeprc">procent</div>
 
         </div>
+
+            <div class="grade_progi">
+               <p class="progi">Ocena niedostateczna: </p> <span id="prog1s"></span> <p class="progi">do: </p> <span id="prog1e"></span>
+               <p class="progi">Ocena dopuszczająca: </p> <span id="prog2s"></span> <p class="progi">do: </p> <span id="prog2e"></span>
+               <p class="progi">Ocena dostateczna: </p> <span id="prog3s"></span> <p class="progi">do: </p> <span id="prog3e"></span>
+               <p class="progi">Ocena dobra od: </p> <span id="prog4s"></span> <p class="progi">do: </p> <span id="prog4e"></span>
+               <p class="progi">Ocena bardzo dobra: </p> <span id="prog5s"></span> <p class="progi">do: </p> <span id="prog5e"></span>
+               <p class="progi">Ocena celująca: </p> <span id="prog6s"></span> <p class="progi">do: </p> <span id="prog6e"></span>
+            </div>
         
 </div>
 
@@ -151,15 +160,9 @@ $(centerpopup).addClass("slide-in-fwd-center");
 
    $(centerbox).removeClass("puff-out-center"); 
 }
-
-
-
-
 $(centerpopup).removeClass("slide-out-bck-center");
-
    }
 
-   
 function toggler(){
   
    var i = 20;
@@ -270,7 +273,8 @@ function liczenie(){
    setTimeout(function() {
         $(gradeprc).removeClass('fade-in');
     }, 900); 
- /* ################# moment liczenia właściwy #############*/
+   /* ################# moment liczenia właściwy #############*/
+   
    var wynik = Math.round((liczba_punktow / max_punktów)*100);
   
    /*########### Koniec funkcji liczenia ################*/
@@ -354,12 +358,49 @@ function liczenie(){
 
   if(isNaN(liczba_punktow)) {
       
-      
-
       gradetxt.innerHTML = "błąd";
       gradeprc.innerHTML = "błąd";
      
  }
+
+
+
+                                                                              /*              PROGI PUNKTOWE            */
+
+
+ var prog_1s = document.getElementById("prog1s");
+ var prog_2s = document.getElementById("prog2s");
+ var prog_3s = document.getElementById("prog3s");
+ var prog_4s = document.getElementById("prog4s");
+ var prog_5s = document.getElementById("prog5s");
+ var prog_6s = document.getElementById("prog6s");
+
+var prog_1e = document.getElementById("prog1e");
+var prog_2e = document.getElementById("prog2e");
+var prog_3e = document.getElementById("prog3e");
+var prog_4e = document.getElementById("prog4e");
+var prog_5e = document.getElementById("prog5e");
+var prog_6e = document.getElementById("prog6e");
+
+
+prog_1s.innerHTML = 0 + " pkt";
+prog_2s.innerHTML = (Math.round((dop_start_val * max_punktów) * 100)/ 10000) + " pkt";
+prog_3s.innerHTML = (Math.round((dst_start_val * max_punktów) * 100)/ 10000) + " pkt";
+prog_4s.innerHTML = (Math.round((db_start_val * max_punktów) * 100)/ 10000) + " pkt";
+prog_5s.innerHTML = (Math.round((bdb_start_val * max_punktów) * 100)/ 10000) + " pkt";
+prog_6s.innerHTML = (Math.round((cel_start_val * max_punktów) * 100)/ 10000) + " pkt";
+
+console.log(cel_start_val);
+
+prog_1e.innerHTML = (Math.round((ndst_end_val * max_punktów) * 100)/ 10000) + " pkt";
+prog_2e.innerHTML = (Math.round((dop_end_val * max_punktów) * 100)/ 10000) + " pkt";
+prog_3e.innerHTML = (Math.round((dst_end_val * max_punktów) * 100)/ 10000) + " pkt";
+prog_4e.innerHTML = (Math.round((db_end_val * max_punktów) * 100)/ 10000) + " pkt";
+prog_5e.innerHTML = (Math.round((bdb_end_val * max_punktów) * 100)/ 10000) + " pkt";
+prog_6e.innerHTML = max_punktów + " pkt";
+
+
+      
 
    /* ################# koniec określania oceny #############*/
 }}
@@ -1375,25 +1416,9 @@ else {
     $(input_2).addClass("dobre_dane");
     
  }
-
-
-if(max_punktów.length != 0 ){
-   console.log("2 rozne od 0" );
-
-   if(parseInt(liczba_punktow) > parseInt(max_punktów))
-   {
-      console.log("1 wieksze od drugiego");
-      $(input_1).removeClass("dobre_dane");
-      $(input_1).addClass("bledne_dane");   
-      $(handler_1).addClass("hint--right  hint--bounce");  
-   }
-   else{
-      $(handler_1).removeClass("hint--right  hint--bounce hint--error");
-   }
-
 }
 
-}
+
 
 
 
