@@ -91,10 +91,10 @@
         <input class="szesc2" type="text" id="ikonaprocent" value="%" disabled="true" >
         
         <input type="button" class="box-button-p" id="OKButton" value="OK" onclick="save_settings()" > <br>
-        <input type="button" value="COOCK-IES" onclick="DefaultValGrades()">
-        <input type="button" value="masneprogi" onclick="Tomczi()">
+        
     </div>
-
+    <input type="button" value="COOCK-IES" onclick="DefaultValGrades()">
+    <input type="button" value="masneprogi" onclick="Tomczi()">
 </div>
 
 
@@ -117,13 +117,13 @@
 
 <div class="center">
        
-        <div  class="txt">wpisz otrzymaną liczbe punktów</div>
+        <div  class="txt">Wpisz otrzymaną liczbe punktów</div>
         
          <input class="box" type="text" id="l.op" onchange="this.value = this.value.replace(/,/g, '.')" >
         
         <br>
 
-       <div class="txt">wpisz maksymalną liczbe punktów</div>
+       <div class="txt">Wpisz maksymalną liczbe punktów</div>
         <input  class="box" type="text" id="l.mp" onchange="this.value = this.value.replace(/,/g, '.')" >  <br>
         
         <input type="button" class="box-button" value="OK" onclick="liczenie()" > <br>
@@ -224,17 +224,7 @@ function liczenie(){
    }
 
 
-   if(liczba_punktow > max_punktów) {
    
-
-   
-       $(input_1).addClass("shake-horizontal");
-       setTimeout(function() {
-        $(input_1).removeClass('shake-horizontal');
-        }, 1000);
-
- }
-
    
    else if (liczba_punktow.length == 0){
     
@@ -435,17 +425,17 @@ prog_6e.innerHTML = max_punktów + " pkt";
   function cookies(e1, s2, e2, s3, e3, s4, e4, s5, e5, s6)
   {
    
-
-    document.cookie = "ndst_end =" + e1;
-    document.cookie = "dop_start =" + s2;
-    document.cookie = "dop_end =" + e2;
-    document.cookie = "dsty_start =" + s3;
-    document.cookie = "dsty_end =" + e3;
-    document.cookie = "db_start =" + s4;
-    document.cookie = "db_end =" + e4;
-    document.cookie = "bdb_start =" + s5;
-    document.cookie = "bdb_end =" + e5;
-    document.cookie = "cel_start =" + s6;
+   localStorage.setItem("ndst_end" ,e1)
+   localStorage.setItem("dop_start" ,s2)
+   localStorage.setItem("dop_end" ,e2)
+   localStorage.setItem("dst_start" ,s3)
+   localStorage.setItem("dst_end" ,e3)
+   localStorage.setItem("db_start" ,s4)
+   localStorage.setItem("db_end" ,e4)
+   localStorage.setItem("bdb_start" ,s5)
+   localStorage.setItem("bdb_end" ,e5)
+   localStorage.setItem("cel_start" ,s6)
+   console.log(localStorage.length)
   }
 
 
@@ -453,24 +443,24 @@ prog_6e.innerHTML = max_punktów + " pkt";
 
 function DefaultValGrades() {
 
-   console.log(document.cookie);
-   cel_start.value = parseInt(getCookie("cel_start"));
+   
+   cel_start.value = parseInt(localStorage.getItem('cel_start'));
    cel_end.value= 100;
 
-   bdb_start.value = parseInt(getCookie("bdb_start"));
-   bdb_end.value= parseInt(getCookie("bdb_end"));
+   bdb_start.value = parseInt(localStorage.getItem('bdb_start'));
+   bdb_end.value= parseInt(localStorage.getItem('bdb_end'));
 
-   db_start.value= parseInt(getCookie("db_start"));
-   db_end.value=   parseInt(getCookie("db_end"));
+   db_start.value= parseInt(localStorage.getItem('db_start'));
+   db_end.value=   parseInt(localStorage.getItem('db_end'));
 
-   dst_start.value=parseInt(getCookie("dsty_start"));
-   dst_end.value= parseInt(getCookie("dsty_end"));
+   dst_start.value=parseInt(localStorage.getItem('dst_start'));
+   dst_end.value= parseInt(localStorage.getItem('dst_end'));
 
-   dop_start.value = parseInt(getCookie("dop_start"));
-   dop_end.value = parseInt(getCookie("dop_end"));
+   dop_start.value = parseInt(localStorage.getItem('dop_start'));
+   dop_end.value = parseInt(localStorage.getItem('dop_end'));
 
    ndst_start.value = 0;
-   ndst_end.value = parseInt(getCookie("ndst_end"));
+   ndst_end.value = parseInt(localStorage.getItem('ndst_end'));
 
 
    $(cel_end).addClass("dobre_dane");
@@ -1364,7 +1354,7 @@ function save_settings(){
 
     if(dop_start_val - ndst_end_val == 1 && dst_start_val - dop_end_val == 1 && db_start_val - dst_end_val == 1 && bdb_start_val - db_end_val == 1 && cel_start_val - bdb_end_val == 1 && dst_start_val < dst_end_val && db_start_val < db_end_val && dop_start_val < dop_end_val && cel_start_val < 100 && ndst_start_val < ndst_end_val && bdb_start_val < bdb_end_val &&  cel_end_val != cel_start_val && bdb_end_val != bdb_start_val && db_end_val != db_start_val && dst_end_val != dst_start_val && dop_end_val != dop_start_val && ndst_end_val != ndst_start_val ) {
       console.log("DOJEBANY WARUNEK SPEŁNOIONY");
-      document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+      localStorage.clear();
       cookies(ndst_end_val, dop_start_val, dop_end_val, dst_start_val, dst_end_val, db_start_val, db_end_val, bdb_start_val, bdb_end_val, cel_start_val);
       toggler();
     }
