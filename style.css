@@ -29,26 +29,29 @@ font-family: 'Source Sans Pro', sans-serif;
 }
 #info{
   position: absolute;
-  top:2%;
-  right:2%;
+  top:13.25px;
+  right:20px;
   font-size: 30px;
   cursor: pointer;
   transition: 0.5s;
   color: rgb(31, 19, 41)
 }
 #info:hover{
-  color: #222222;
-  font-size:32px;
+  color: rgb(37, 27, 44);
+  
 }
 
 .info_content{
   position: absolute;
-  top: 5%;
-  right:0%;
-  background-color: grey;
-  color: white;
+  top: 7.25px;
+  right:60px;
+  background-color:#3c263dbb;
+  padding: 10px;
+  color: rgb(241, 221, 247);
+border-radius: 50px;
+ 
   float: right;
-  
+  font-size: 15px;
 }
 
 
@@ -151,7 +154,7 @@ font-family: 'Source Sans Pro', sans-serif;
     -webkit-appearance:none!important;
 
 
-    background: url('data:image/svg+xml;utf8,<svg  xmlns="http://www.w3.org/2000/svg"   width="120" height="30" ><text  x="100" y="23" style="font-size: 13px; fill: ye font-family: sans-serif ; z-index: 2137; ">%</text></svg>') no-repeat;
+    background: url('data:image/svg+xml;utf8,<svg  xmlns="http://www.w3.org/2000/svg"   width="120" height="30" ><text  x="100" y="23" style="font-size: 12px; fill:grey ; opacity: 0.4; font-family: sans-serif ; z-index: 2137; ">%</text></svg>') no-repeat;
   
     background-color: rgb(241, 241, 241);
 }

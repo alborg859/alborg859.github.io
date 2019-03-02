@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet"> 
     <title>Nowa Wersja</title>
 </head>
-<body  class="color-change">
+<body  >
   
 <div class="center-popup" id="c-popup">
 
@@ -132,11 +132,15 @@
         
 </div>
 
-<div class="info_content">Created by piotr alwin</div>
+<div class="info_content">Autorzy: Kacper Grobelny, Piotr Śliperski</div>
 
 <script>
 
 $( document ).ready(function() {
+   c = 0;
+
+
+
    $(centerpopup).addClass("div-close");
    if(localStorage.length == 10){
       DefaultValGrades();
@@ -658,22 +662,30 @@ var centerpopup = document.getElementById("c-popup");
     var info_button = document.getElementById("info");
     var info_cont = document.getElementsByClassName("info_content");
 
-   var checker = 3;
+   var c = 0;
 /*########## KONIEC ZMIENNYCH ####################*/
+$(info_button).ready(function(){
+  console.log("gotów");
+  $(info_cont).addClass("div-close");
+  c=1;
+})
 
 $(info_button).click(function(){
 
-   if(checker == 3){
-      $(info_cont).removeClass("slide-out-right");
-      $(info_cont).addClass("slide-in-right");
-      checker = 4;
-   }
-   if(checker == 4){
+   if(c == 0) { 
       $(info_cont).removeClass("slide-in-right");
       $(info_cont).addClass("slide-out-right");
-      checker = 3;
+      c=1;
+      $(info_cont).removeClass("div-close");
+      console.log("schowane");
+
+   } else if (c == 1) {
+      $(info_cont).addClass("slide-in-right");
+      $(info_cont).removeClass("slide-out-right");
+      $(info_cont).removeClass("div-close");
+      c=0;
+      console.log("wysunięte");
    }
-   
 
 });
 
