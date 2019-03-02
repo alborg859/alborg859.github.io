@@ -207,7 +207,12 @@ function toggler(){
 
     }
 
+    var array_glowny = [];
 
+function glusher(tekst){
+   array_glowny.push( tekst );
+   return;
+}
  
 
 /*##################### LICZENIE #####################*/
@@ -227,7 +232,10 @@ function liczenie(){
        setTimeout(function() {
         $(input_1).removeClass('shake-horizontal');
         }, 1000);
-       
+
+       glusher("Wartość z pierwszego pola musi być liczbą!")
+
+         
    }
 
 
@@ -240,6 +248,8 @@ function liczenie(){
         $(input_1).removeClass('shake-horizontal');
     }, 1000);
     $(input_1).addClass("bledne_dane");
+
+    glusher("Pierwsze pole nie może być puste!")
    }
    
    if(isNaN(max_punktów)) {
@@ -250,8 +260,9 @@ function liczenie(){
         }, 1000);
 
         console.log("ŹŹLLEE");
+        glusher("Wartość z drugiego pola musi być liczbą!")
 
-        gradetxt.innerHTML = "2137";
+        
        
    }
 
@@ -262,12 +273,24 @@ function liczenie(){
         $(input_2).removeClass('shake-horizontal');
     }, 1000);
     $(input_2).addClass("bledne_dane");
+    glusher("Drugie pole nie może być puste!")
    }
 
-
+   if(array_glowny.length != 0){
+      Swal.fire({
+         type: 'error',
+         title: 'Oops...',
+         html: array_glowny.join( '<br>'),
+         position: "top-start",
+         allowOutsideClick: false,
+         toast: true,
+   })
+   array_glowny = [];
+   }
 
   
    else{
+   Swal.close();
    document.getElementById("l.op").innerHTML = liczba_punktow;
   
    $(gradetxt).addClass("fade-in");
@@ -1543,7 +1566,29 @@ function save_settings(){
     }
     else{
        
-      console.log(array_bledow);
+       console.log(array_bledow.length)
+
+      if(parseInt(array_bledow.length) > 4 ){
+         Swal.fire({
+         
+         type: 'info',
+         title: 'Uwaga',
+         text: "Zresetowaliśmy twoje progi ze względu na za dużą ilość błędów.",
+         position: "top-end",
+         toast: true,
+         timer: 3000,  
+       })
+                              if(localStorage.length == 10){
+                                       DefaultValGrades();
+                              } else {
+                                 SampleGrades();}
+
+
+
+      }  
+
+
+      else{
       Swal.fire({
          
   type: 'error',
@@ -1556,7 +1601,7 @@ function save_settings(){
     array_bledow = [];
     }
     
-    
+   }
     
     }
 

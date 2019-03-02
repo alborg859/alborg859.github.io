@@ -12,3 +12,5 @@ Update 23.02 - Progi procentowe sprawdzają się nawzajem  w stosunku :
 Update 1.03 - Progi puntkowe
 
 2.03 - info na linijce 664
+
+2.03 - Alerty działają festtt, trzeba pozmieniać ich zawartości na poprawne gramatycznie i ew. jakąś klasę, żeby to wyglądało.
