@@ -95,6 +95,7 @@
     </div>
     <input type="button" value="COOCK-IES" onclick="DefaultValGrades()">
     <input type="button" value="masneprogi" onclick="Tomczi()">
+    <input type="button" value="czyszczenie" onclick="czyszczenie()">
 </div>
 
 
@@ -527,6 +528,65 @@ function Tomczi() {
 
 
 
+function czyszczenie() {
+   cel_start.value ="";
+   cel_end.value= 100;
+
+   bdb_start.value = "";
+   bdb_end.value="";
+
+   db_start.value="";
+   db_end.value="";
+
+   dst_start.value="";
+   dst_end.value= "";
+
+   dop_start.value = "";
+   dop_end.value = "";
+
+   ndst_start.value = 0;
+   ndst_end.value = "";
+
+
+
+   $(cel_end).removeClass("bledne_dane");
+   $(cel_start).removeClass("bledne_dane");
+
+   $(bdb_end).removeClass("bledne_dane");
+   $(bdb_start).removeClass("bledne_dane");
+
+   $(db_end).removeClass("bledne_dane");
+   $(db_start).removeClass("bledne_dane");
+
+   $(dst_end).removeClass("bledne_dane");
+   $(dst_start).removeClass("bledne_dane");
+
+   $(dop_end).removeClass("bledne_dane");
+   $(dop_start).removeClass("bledne_dane");
+
+   $(ndst_end).removeClass("bledne_dane");
+   $(ndst_start).removeClass("bledne_dane");
+
+
+   $(cel_end).addClass("dobre_dane");
+   $(cel_start).removeClass("dobre_dane");
+
+   $(bdb_end).removeClass("dobre_dane");
+   $(bdb_start).removeClass("dobre_dane");
+
+   $(db_end).removeClass("dobre_dane");
+   $(db_start).removeClass("dobre_dane");
+
+   $(dst_end).removeClass("dobre_dane");
+   $(dst_start).removeClass("dobre_dane");
+
+   $(dop_end).removeClass("dobre_dane");
+   $(dop_start).removeClass("dobre_dane");
+
+   $(ndst_end).removeClass("dobre_dane");
+   $(ndst_start).addClass("dobre_dane"); 
+}
+
 
 
 /*########## ZMIENNE GLOBALNE I EVENT LISTENERY ############*/
@@ -645,6 +705,25 @@ function CheckValidationGrades() {
 
     $(ndst_end).removeClass("bledne_dane");
     $(ndst_start).removeClass("dobre_dane");
+
+
+    $(cel_end).removeClass("dobre_dane");
+    $(cel_start).removeClass("bledne_dane");
+
+    $(bdb_end).removeClass("dobre_dane");
+    $(bdb_start).removeClass("bledne_dane");
+
+    $(db_end).removeClass("dobre_dane");
+    $(db_start).removeClass("bledne_dane");
+
+    $(dst_end).removeClass("dobre_dane");
+    $(dst_start).removeClass("bledne_dane");
+
+    $(dop_end).removeClass("dobre_dane");
+    $(dop_start).removeClass("bledne_dane");
+
+    $(ndst_end).removeClass("dobre_dane");
+    $(ndst_start).removeClass("bledne_dane");
    
 
 
@@ -764,9 +843,6 @@ else {
 
 
 
-
-
-
  if (regex.test(dst_start_val) == false ) {
     console.log("niezgodne z regex");
     $(dst_start).addClass("bledne_dane");
@@ -782,10 +858,6 @@ else {
     $(dst_start).removeClass("bledne_dane");
     $(dst_start).addClass("dobre_dane");
  }
-
-
-
-
 
 
 
@@ -915,7 +987,7 @@ function CheckOverlaps() {
    /* CEL */
 
 
-if ( parseInt(cel_end_val) <= parseInt(cel_start_val)) {
+if ( parseInt(cel_end_val) <= parseInt(cel_start_val) && cel_start_val.length != 0) {
 
 $(cel_end).removeClass("dobre_dane");
 $(cel_end).addClass("bledne_dane");
@@ -923,19 +995,14 @@ $(cel_end).addClass("bledne_dane");
  $(cel_start).removeClass("dobre_dane");
  $(cel_start).addClass("bledne_dane");
 
-
- 
 console.log("CEL END JEST MNIEJSZY NIz CEL START");
-} else {
-
-   $(cel_end).removeClass("bledne_dane");
-   $(cel_end).addClass("dobre_dane");
-
-   $(cel_start).removeClass("bledne_dane");
-   $(cel_start).addClass("dobre_dane");
-
-   console.log("CEL END JEST WIEKSZY NIz CEL START");
 }
+ 
+ if (cel_start_val.length == 0){
+    $(cel_start).removeClass("bledne_dane")
+    $(cel_start).removeClass("dobre_dane")
+ }
+
 
 if ( parseInt(cel_end_val) == 100 ) {
 
@@ -947,13 +1014,6 @@ console.log("rowne  100");
 
 
 
-if(parseInt(cel_start_val) <= parseInt(bdb_end_val) ) {
-   $(cel_start).removeClass("dobre_dane");
-   $(cel_start).addClass("bledne_dane");
-   console.log("wieksze od prawej");
-} 
-
-
 
 
 
@@ -961,54 +1021,61 @@ if(parseInt(cel_start_val) <= parseInt(bdb_end_val) ) {
    /* BDB */
 
 
-   if(parseInt(bdb_end_val) <= parseInt(bdb_start_val) ) {
+ 
+if(parseInt(bdb_end_val) >= parseInt(cel_start_val) && bdb_end_val.length != 0 && cel_start_val.length != 0) {
    $(bdb_end).removeClass("dobre_dane");
    $(bdb_end).addClass("bledne_dane");
+
+   $(cel_start).removeClass("dobre_dane");
+   $(cel_start).addClass("bledne_dane");
    console.log("wieksze od prawej");
 } 
-else 
-{
+
+
+if(parseInt(bdb_end_val) < parseInt(cel_start_val) && bdb_end_val.length != 0 && cel_start_val.length != 0) {
    $(bdb_end).removeClass("bledne_dane");
    $(bdb_end).addClass("dobre_dane");
-
-  
-}
-
-if(parseInt(bdb_end_val) >= parseInt(cel_start_val) ) {
+   console.log("wieksze od prawej");
+} 
+ 
+ 
+  if(parseInt(bdb_end_val) <= parseInt(bdb_start_val) && bdb_end_val.length != 0 && bdb_start_val.length != 0  ) {
    $(bdb_end).removeClass("dobre_dane");
    $(bdb_end).addClass("bledne_dane");
-   console.log("wieksze od prawej");
-} 
-else 
-{
-   $(bdb_end).removeClass("bledne_dane");
-   $(bdb_end).addClass("dobre_dane");
 
-  
-}
-
-
-if(parseInt(bdb_start_val) >= parseInt(bdb_end_val) ) {
    $(bdb_start).removeClass("dobre_dane");
    $(bdb_start).addClass("bledne_dane");
    console.log("wieksze od prawej");
 } 
-else 
-{
+if(parseInt(bdb_end_val) > parseInt(bdb_start_val) && bdb_end_val.length != 0 && bdb_start_val.length != 0  ) {
+   $(bdb_end).removeClass("bledne_dane");
+   $(bdb_end).addClass("dobre_dane");
+
    $(bdb_start).removeClass("bledne_dane");
    $(bdb_start).addClass("dobre_dane");
-
-  
-}
-
-
-if(parseInt(bdb_start_val) <= parseInt(db_end_val) ) {
-   $(bdb_start).removeClass("dobre_dane");
-   $(bdb_start).addClass("bledne_dane");
-  
+   console.log("wieksze od prawej");
 } 
 
 
+
+
+
+
+if(parseInt(bdb_start_val) <= parseInt(db_end_val) && db_end_val.length != 0 && bdb_start_val.length != 0 ) {
+   $(bdb_start).removeClass("dobre_dane");
+   $(db_end).removeClass("dobre_dane");
+   $(bdb_start).addClass("bledne_dane");
+   $(db_end).addClass("bledne_dane");
+  
+} 
+
+if(parseInt(bdb_start_val) > parseInt(db_end_val) && db_end_val.length != 0 && bdb_start_val.length != 0 ) {
+   $(bdb_start).removeClass("bledne_dane");
+   $(db_end).removeClass("bledne_dane");
+   $(bdb_start).addClass("dobre_dane");
+   $(db_end).addClass("dobre_dane");
+  
+} 
 
 
 
@@ -1018,83 +1085,122 @@ if(parseInt(bdb_start_val) <= parseInt(db_end_val) ) {
 
 
 
-if(parseInt(db_end_val) <= parseInt(db_start_val)) {
+if(parseInt(db_end_val) <= parseInt(db_start_val) && db_end_val.length != 0 && db_start_val.length != 0) {
    $(db_end).removeClass("dobre_dane");
    $(db_end).addClass("bledne_dane");
-} else {
+   $(db_start).removeClass("dobre_dane");
+   $(db_start).addClass("bledne_dane");
+   
+} 
 
+
+if(parseInt(db_end_val) > parseInt(db_start_val) && db_end_val.length != 0 && db_start_val.length != 0) {
    $(db_end).removeClass("bledne_dane");
    $(db_end).addClass("dobre_dane");
-
-}
-
-
-if(parseInt(db_end_val) >= parseInt(bdb_start_val)) {
-   $(db_end).removeClass("dobre_dane");
-   $(db_end).addClass("bledne_dane");
-} 
-
-
-
-
-if(parseInt(db_start_val) >= parseInt(db_end_val))
-{
-   $(db_start).removeClass("dobre_dane");
-   $(db_start).addClass("bledne_dane");
-} else {
-   $(db_start).removeClass("bledne_dane")
+   $(db_start).removeClass("bledne_dane");
    $(db_start).addClass("dobre_dane");
-}
+   
+} 
+ 
 
-if(parseInt(db_start_val) <= parseInt(dst_end_val))
+
+if(parseInt(db_start_val) <= parseInt(dst_end_val)&& dst_end_val.length != 0 && db_start_val.length != 0)
 {
    $(db_start).removeClass("dobre_dane");
+   $(dst_end).removeClass("dobre_dane");
    $(db_start).addClass("bledne_dane");
+   $(dst_end).addClass("bledne_dane");
 } 
 
+if(parseInt(db_start_val) > parseInt(dst_end_val)&& dst_end_val.length != 0 && db_start_val.length != 0)
+{
+   $(db_start).removeClass("bledne_dane");
+   $(dst_end).removeClass("bledne_dane");
+   $(db_start).addClass("dobre_dane");
+   $(dst_end).addClass("dobre_dane");
+} 
 
 
 
 /* DST */
 
-if(parseInt( dst_end_val ) >= parseInt(db_start_val) ) {
+
+
+
+if(parseInt(dst_end_val) <= parseInt(dst_start_val) && dst_end_val.length != 0 && dst_start_val.length != 0) {
    $(dst_end).removeClass("dobre_dane");
    $(dst_end).addClass("bledne_dane");
-}
+   $(dst_start).removeClass("dobre_dane");
+   $(dst_start).addClass("bledne_dane");
+   
+} 
 
 
-if(parseInt( dst_end_val ) <= parseInt(dst_start_val) ) {
-   $(dst_end).removeClass("dobre_dane");
-   $(dst_end).addClass("bledne_dane");
-} else {
-
+if(parseInt(dst_end_val) > parseInt(dst_start_val) && dst_end_val.length != 0 && dst_start_val.length != 0) {
    $(dst_end).removeClass("bledne_dane");
    $(dst_end).addClass("dobre_dane");
-}
+   $(dst_start).removeClass("bledne_dane");
+   $(dst_start).addClass("dobre_dane");
+   
+} 
+
+
+if(parseInt(dst_start_val) <= parseInt(dop_end_val)&& dop_end_val.length != 0 && dst_start_val.length != 0)
+{
+   $(dst_start).removeClass("dobre_dane");
+   $(dop_end).removeClass("dobre_dane");
+   $(dst_start).addClass("bledne_dane");
+   $(dop_end).addClass("bledne_dane");
+} 
+
+if(parseInt(dst_start_val) > parseInt(dop_end_val)&& dop_end_val.length != 0 && dst_start_val.length != 0)
+{
+   $(dst_start).removeClass("bledne_dane");
+   $(dop_end).removeClass("bledne_dane");
+   $(dst_start).addClass("dobre_dane");
+   $(dop_end).addClass("dobre_dane");
+} 
+
+
 
 
 /* DOP */
 
-if(parseInt(dst_start_val) <= parseInt(dop_end_val)) {
 
-   $(dst_start).removeClass("dobre_dane");
-   $(dst_start).addClass("bledne_dane");
-
+if(parseInt(dop_end_val) <= parseInt(dop_start_val) && dop_end_val.length != 0 && dop_start_val.length != 0) {
+   $(dop_end).removeClass("dobre_dane");
+   $(dop_end).addClass("bledne_dane");
+   $(dop_start).removeClass("dobre_dane");
+   $(dop_start).addClass("bledne_dane");
+   
 } 
 
 
-if(parseInt(dop_end_val) <= parseInt(dop_start_val)){
-   $(dop_end).removeClass("dobre_dane");
-   $(dop_end).addClass("bledne_dane");
-}
+if(parseInt(dop_end_val) > parseInt(dop_start_val) && dop_end_val.length != 0 && dop_start_val.length != 0) {
+   $(dop_end).removeClass("bledne_dane");
+   $(dop_end).addClass("dobre_dane");
+   $(dop_start).removeClass("bledne_dane");
+   $(dop_start).addClass("dobre_dane");
+   
+} 
 
 
-if(parseInt(dop_start_val) <= parseInt(ndst_end_val)){
+if(parseInt(dop_start_val) <= parseInt(ndst_end_val)&& ndst_end_val.length != 0 && dop_start_val.length != 0)
+{
    $(dop_start).removeClass("dobre_dane");
-   $(dop_start).addClass("bledne_dane");
    $(ndst_end).removeClass("dobre_dane");
-$(ndst_end).addClass("bledne_dane");
-}
+   $(dop_start).addClass("bledne_dane");
+   $(ndst_end).addClass("bledne_dane");
+} 
+
+if(parseInt(dop_start_val) > parseInt(ndst_end_val)&& ndst_end_val.length != 0 && dop_start_val.length != 0)
+{
+   $(dop_start).removeClass("bledne_dane");
+   $(ndst_end).removeClass("bledne_dane");
+   $(dop_start).addClass("dobre_dane");
+   $(ndst_end).addClass("dobre_dane");
+} 
+
 
 
 
@@ -1102,15 +1208,21 @@ $(ndst_end).addClass("bledne_dane");
 
 /* NDST */
 
-if  (parseInt(ndst_end_val) <= parseInt(ndst_start_val)) {
+if  (parseInt(ndst_end_val) <= 0 && ndst_end_val.length != 0)  {
 
 $(ndst_start).removeClass("dobre_dane");
 $(ndst_start).addClass("bledne_dane");
-
 $(ndst_end).removeClass("dobre_dane");
 $(ndst_end).addClass("bledne_dane");
 }
 
+if  (parseInt(ndst_end_val) > 0 && ndst_end_val.length != 0)  {
+
+$(ndst_start).removeClass("bledne_dane");
+$(ndst_start).addClass("dobre_dane");
+$(ndst_end).removeClass("bledne_dane");
+$(ndst_end).addClass("dobre_dane");
+}
 
 /* KONIEC sprawdzania czy dane z inputów się nie dublują */
 }
