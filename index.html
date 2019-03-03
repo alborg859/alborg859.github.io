@@ -259,7 +259,7 @@ function liczenie(){
         $(input_2).removeClass('shake-horizontal');
         }, 1000);
 
-        console.log("ŹŹLLEE");
+       
         glusher("Wartość z drugiego pola musi być liczbą!")
 
         
@@ -465,7 +465,7 @@ prog_6e.innerHTML = max_punktów + " pkt";
    localStorage.setItem("bdb_start" ,s5)
    localStorage.setItem("bdb_end" ,e5)
    localStorage.setItem("cel_start" ,s6)
-   console.log(localStorage.length)
+   
   }
 
 
@@ -691,7 +691,7 @@ var centerpopup = document.getElementById("c-popup");
    var c = 0;
 /*########## KONIEC ZMIENNYCH ####################*/
 $(info_button).ready(function(){
-  console.log("gotów");
+  
   $(info_cont).addClass("div-close");
   c=1;
 })
@@ -703,14 +703,14 @@ $(info_button).click(function(){
       $(info_cont).addClass("slide-out-right");
       c=1;
       $(info_cont).removeClass("div-close");
-      console.log("schowane");
+      
 
    } else if (c == 1) {
       $(info_cont).addClass("slide-in-right");
       $(info_cont).removeClass("slide-out-right");
       $(info_cont).removeClass("div-close");
       c=0;
-      console.log("wysunięte");
+      
    }
 
 });
@@ -790,7 +790,7 @@ function CheckValidationGrades() {
 
 
 if (regex.test(cel_start_val) == false ) {
-    console.log("niezgodne z regex");
+   
     $(cel_start).addClass("bledne_dane");
     $(cel_start).removeClass("dobre_dane");
  }
@@ -800,7 +800,7 @@ else if(cel_start_val.length == 0){
  }
   
 else {
-    console.log("zzoden");
+   
     $(cel_start).removeClass("bledne_dane");
     $(cel_start).addClass("dobre_dane");
  }
@@ -810,7 +810,7 @@ else {
 
 
  if (regex.test(cel_end_val) == false ) {
-    console.log("niezgodne z regex");
+ 
     $(cel_end).addClass("bledne_dane");
     $(cel_end).removeClass("dobre_dane");
  }
@@ -820,7 +820,7 @@ else if(cel_end_val.length == 0){
  }
   
 else {
-    console.log("zzoden");
+   
     $(cel_end).removeClass("bledne_dane");
     $(cel_end).addClass("dobre_dane");
  }
@@ -829,7 +829,7 @@ else {
 
 
 if (regex.test(bdb_start_val) == false ) {
-    console.log("niezgodne z regex");
+   
     $(bdb_start).addClass("bledne_dane");
     $(bdb_start).removeClass("dobre_dane");
  }
@@ -839,14 +839,14 @@ else if(bdb_start_val.length == 0){
  }
   
 else {
-    console.log("zzoden");
+    
     $(bdb_start).removeClass("bledne_dane");
     $(bdb_start).addClass("dobre_dane");
  }
 
 
  if (regex.test(bdb_end_val) == false ) {
-    console.log("niezgodne z regex");
+   
     $(bdb_end).addClass("bledne_dane");
     $(bdb_end).removeClass("dobre_dane");
  }
@@ -856,7 +856,7 @@ else if(bdb_end_val.length == 0){
  }
   
 else {
-    console.log("zzoden");
+    
     $(bdb_end).removeClass("bledne_dane");
     $(bdb_end).addClass("dobre_dane");
  }
@@ -865,7 +865,7 @@ else {
 
 
 if (regex.test(db_start_val) == false ) {
-    console.log("niezgodne z regex");
+    
     $(db_start).addClass("bledne_dane");
     $(db_start).removeClass("dobre_dane");
  }
@@ -875,14 +875,14 @@ else if(db_start_val.length == 0){
  }
   
 else {
-    console.log("zzoden");
+ 
     $(db_start).removeClass("bledne_dane");
     $(db_start).addClass("dobre_dane");
  }
 
 
  if (regex.test(db_end_val) == false ) {
-    console.log("niezgodne z regex");
+   
     $(db_end).addClass("bledne_dane");
     $(db_end).removeClass("dobre_dane");
  }
@@ -892,7 +892,7 @@ else if(db_end_val.length == 0){
  }
   
 else {
-    console.log("zzoden");
+    
     $(db_end).removeClass("bledne_dane");
     $(db_end).addClass("dobre_dane");
  }
@@ -904,7 +904,7 @@ else {
 
 
  if (regex.test(dst_start_val) == false ) {
-    console.log("niezgodne z regex");
+    
     $(dst_start).addClass("bledne_dane");
     $(dst_start).removeClass("dobre_dane");
  }
@@ -914,7 +914,7 @@ else if(dst_start_val.length == 0){
  }
   
 else {
-    console.log("zzoden");
+  
     $(dst_start).removeClass("bledne_dane");
     $(dst_start).addClass("dobre_dane");
  }
@@ -922,7 +922,7 @@ else {
 
 
  if (regex.test(dst_end_val) == false ) {
-    console.log("niezgodne z regex");
+    
     $(dst_end).addClass("bledne_dane");
     $(dst_end).removeClass("dobre_dane");
  }
@@ -932,7 +932,7 @@ else if(dst_end_val.length == 0){
  }
   
 else {
-    console.log("zzoden");
+
     $(dst_end).removeClass("bledne_dane");
     $(dst_end).addClass("dobre_dane");
  }
@@ -941,7 +941,7 @@ else {
 
 
  if (regex.test(dop_start_val) == false ) {
-    console.log("niezgodne z regex");
+
     $(dop_start).addClass("bledne_dane");
     $(dop_start).removeClass("dobre_dane");
  }
@@ -951,7 +951,7 @@ else if(dop_start_val.length == 0){
  }
   
 else {
-    console.log("zzoden");
+    
     $(dop_start).removeClass("bledne_dane");
     $(dop_start).addClass("dobre_dane");
  }
@@ -961,7 +961,7 @@ else {
 
 
  if (regex.test(dop_end_val) == false ) {
-    console.log("niezgodne z regex");
+   
     $(dop_end).addClass("bledne_dane");
     $(dop_end).removeClass("dobre_dane");
  }
@@ -971,7 +971,7 @@ else if(dop_end_val.length == 0){
  }
   
 else {
-    console.log("zzoden");
+   
     $(dop_end).removeClass("bledne_dane");
     $(dop_end).addClass("dobre_dane");
  }
@@ -981,7 +981,7 @@ else {
 
 
  if (regex.test(ndst_start_val) == false ) {
-    console.log("niezgodne z regex");
+    
     $(ndst_start).addClass("bledne_dane");
     $(ndst_start).removeClass("dobre_dane");
  }
@@ -991,7 +991,7 @@ else if(ndst_start_val.length == 0){
  }
   
 else {
-    console.log("zzoden");
+  
     $(ndst_start).removeClass("bledne_dane");
     $(ndst_start).addClass("dobre_dane");
  }
@@ -1001,7 +1001,7 @@ else {
 
 
 if (regex.test(ndst_end_val) == false ) {
-    console.log("niezgodne z regex");
+   
     $(ndst_end).addClass("bledne_dane");
     $(ndst_end).removeClass("dobre_dane");
  }
@@ -1011,7 +1011,7 @@ else if(ndst_end_val.length == 0){
  }
   
 else {
-    console.log("zzoden");
+    
     $(ndst_end).removeClass("bledne_dane");
     $(ndst_end).addClass("dobre_dane");
  }}
@@ -1060,7 +1060,7 @@ $(cel_end).addClass("bledne_dane");
  $(cel_start).removeClass("dobre_dane");
  $(cel_start).addClass("bledne_dane");
 
-console.log("CEL END JEST MNIEJSZY NIz CEL START");
+
 }
  
  if (cel_start_val.length == 0){
@@ -1073,7 +1073,7 @@ if ( parseInt(cel_end_val) == 100 ) {
 
 $(cel_end).addClass("dobre_dane");
 $(cel_end).removeClass("bledne_dane");
-console.log("rowne  100");
+
 } 
 
 
@@ -1093,14 +1093,14 @@ if(parseInt(bdb_end_val) >= parseInt(cel_start_val) && bdb_end_val.length != 0 &
 
    $(cel_start).removeClass("dobre_dane");
    $(cel_start).addClass("bledne_dane");
-   console.log("wieksze od prawej");
+   
 } 
 
 
 if(parseInt(bdb_end_val) < parseInt(cel_start_val) && bdb_end_val.length != 0 && cel_start_val.length != 0) {
    $(bdb_end).removeClass("bledne_dane");
    $(bdb_end).addClass("dobre_dane");
-   console.log("wieksze od prawej");
+   
 } 
  
  
@@ -1110,7 +1110,7 @@ if(parseInt(bdb_end_val) < parseInt(cel_start_val) && bdb_end_val.length != 0 &&
 
    $(bdb_start).removeClass("dobre_dane");
    $(bdb_start).addClass("bledne_dane");
-   console.log("wieksze od prawej");
+  
 } 
 if(parseInt(bdb_end_val) > parseInt(bdb_start_val) && bdb_end_val.length != 0 && bdb_start_val.length != 0  ) {
    $(bdb_end).removeClass("bledne_dane");
@@ -1118,7 +1118,7 @@ if(parseInt(bdb_end_val) > parseInt(bdb_start_val) && bdb_end_val.length != 0 &&
 
    $(bdb_start).removeClass("bledne_dane");
    $(bdb_start).addClass("dobre_dane");
-   console.log("wieksze od prawej");
+  
 } 
 
 
@@ -1329,7 +1329,7 @@ function save_settings(){
 
       /*CEL START -! BDB END*/
     if(cel_start_val - bdb_end_val != 1 && parseInt(bdb_end_val.length) != 0 && parseInt(cel_start_val.length) != 0){
-         console.log("Nie zgadza mi sie")
+         
          $(cel_start).addClass("shake-horizontal");
             setTimeout(function() {
             $(cel_start).removeClass('shake-horizontal');
@@ -1342,12 +1342,12 @@ function save_settings(){
             }, 1000);
             $(bdb_end).removeClass("dobre_dane");
       $(bdb_end).addClass("bledne_dane");
-      pusher("pomiędzy celem a bdb jest przerwa");
+      pusher("Pomiędzy oceną celującą a bardzo dobrą jest przerwa"); 
     }
   
     /*BDB START -! DB END*/
     if(bdb_start_val - db_end_val != 1 && parseInt(db_end_val.length) != 0 && parseInt(bdb_start_val.length) != 0){
-         console.log("Nie zgadza mi sie")
+        
          $(bdb_start).addClass("shake-horizontal");
             setTimeout(function() {
             $(bdb_start).removeClass('shake-horizontal');
@@ -1360,12 +1360,12 @@ function save_settings(){
             }, 1000);
             $(db_end).removeClass("dobre_dane");
       $(db_end).addClass("bledne_dane");
-      pusher("pomiędzy debem a bdb jest przerwa");
+      pusher("Pomiędzy oceną dobrą a bardzo dobrą jest przerwa"); 
     }
 
     /*DB START -! DST END*/
     if(db_start_val - dst_end_val != 1 && parseInt(dst_end_val.length) != 0 && parseInt(db_start_val.length) != 0){
-         console.log("Nie zgadza mi sie")
+         
          $(db_start).addClass("shake-horizontal");
             setTimeout(function() {
             $(db_start).removeClass('shake-horizontal');
@@ -1376,16 +1376,16 @@ function save_settings(){
             setTimeout(function() {
             $(dst_end).removeClass('shake-horizontal');
             }, 1000);
-      console.log("xd");
+      
       $(dst_end).removeClass("dobre_dane");
       $(dst_end).addClass("bledne_dane");
-      pusher("pomiędzy debem a dst jest przerwa");
+      pusher("Pomiędzy oceną dobrą a dostateczną jest przerwa"); 
     }
 
     /*DST START -! DOP END*/
 
     if(dst_start_val - dop_end_val != 1 && parseInt(dop_end_val.length) != 0 && parseInt(dst_start_val.length) != 0){
-         console.log("Nie zgadza mi sie")
+        
          $(dst_start).addClass("shake-horizontal");
             setTimeout(function() {
             $(dst_start).removeClass('shake-horizontal');
@@ -1396,17 +1396,17 @@ function save_settings(){
             setTimeout(function() {
             $(dop_end).removeClass('shake-horizontal');
             }, 1000);
-      console.log("xd");
+     
       $(dop_end).removeClass("dobre_dane");
       $(dop_end).addClass("bledne_dane");
-      pusher("pomiędzy dope a dste jest przerwa");
+      pusher("Pomiędzy oceną dopuszczającą a dostateczną jest przerwa"); 
     }
 
 
     /*DOP START -! NDST END*/
 
     if(dop_start_val - ndst_end_val != 1 && parseInt(ndst_end_val.length) != 0 && parseInt(dop_start_val.length) != 0){
-         console.log("Nie zgadza mi sie")
+        
          $(dop_start).addClass("shake-horizontal");
             setTimeout(function() {
             $(dop_start).removeClass('shake-horizontal');
@@ -1417,18 +1417,17 @@ function save_settings(){
             setTimeout(function() {
             $(ndst_end).removeClass('shake-horizontal');
             }, 1000);
-      console.log("xd");
+    
       $(ndst_end).removeClass("dobre_dane");
       $(ndst_end).addClass("bledne_dane");
-      pusher("pomiędzy dopem a dst jest przerwa");
+      pusher("Pomiędzy oceną dopuszczającą a niedostateczną jest przerwa"); 
     }
 
     /*############# Czy równe?????###########*/
     
     /* CELE */
     if(100 <= parseInt(cel_start_val) && parseInt(cel_end_val.length) != 0 && parseInt(cel_start_val.length) != 0){
-         console.log(cel_end_val);
-         console.log(cel_start_val);
+        
          $(cel_start).addClass("shake-horizontal");
             setTimeout(function() {
             $(cel_start).removeClass('shake-horizontal');
@@ -1446,7 +1445,7 @@ function save_settings(){
 
       /* BDBY */
     if(parseInt(bdb_end_val) <= parseInt(bdb_start_val) && parseInt(bdb_end_val.length) != 0 && parseInt(bdb_start_val.length) != 0){
-         console.log("Nie zgadza mi sie")
+         
          $(bdb_start).addClass("shake-horizontal");
             setTimeout(function() {
             $(bdb_start).removeClass('shake-horizontal');
@@ -1466,7 +1465,7 @@ function save_settings(){
 
     /* DBY */
     if(parseInt(db_end_val) <= parseInt(db_start_val) && parseInt(db_end_val.length) != 0 && parseInt(db_start_val.length) != 0){
-         console.log("Nie zgadza mi sie")
+         
          $(db_start).addClass("shake-horizontal");
             setTimeout(function() {
             $(db_start).removeClass('shake-horizontal');
@@ -1477,7 +1476,7 @@ function save_settings(){
             setTimeout(function() {
             $(db_end).removeClass('shake-horizontal');
             }, 1000);
-            console.log("db są równe ?xd")
+            
             $(db_end).removeClass("dobre_dane");
       $(db_end).addClass("bledne_dane");
       pusher("Ocena dobra ma wyższy próg początkowy niż końcowy")
@@ -1485,7 +1484,7 @@ function save_settings(){
 
         /* DSTY */
         if(parseInt(dst_end_val) <= parseInt(dst_start_val) && parseInt(dst_end_val.length) != 0 && parseInt(dst_start_val.length) != 0){
-         console.log("Nie zgadza mi sie")
+        
          $(dst_start).addClass("shake-horizontal");
             setTimeout(function() {
             $(dst_start).removeClass('shake-horizontal');
@@ -1505,7 +1504,7 @@ function save_settings(){
 
     /* DOPYY */
     if(parseInt(dop_end_val) <= parseInt(dop_start_val) && parseInt(dop_end_val.length) != 0 && parseInt(dop_start_val.length) != 0){
-         console.log("Nie zgadza mi sie")
+         
          $(dop_start).addClass("shake-horizontal");
             setTimeout(function() {
             $(dop_start).removeClass('shake-horizontal');
@@ -1525,7 +1524,7 @@ function save_settings(){
 
     /* NDSTYY */
     if(parseInt(ndst_end_val) <= parseInt(ndst_start_val) && parseInt(ndst_end_val.length) != 0  ){
-         console.log("Nie zgadza mi sie")
+         
          $(ndst_start).addClass("shake-horizontal");
             setTimeout(function() {
             $(ndst_start).removeClass('shake-horizontal');
@@ -1548,7 +1547,7 @@ function save_settings(){
 
 
     if(dop_start_val - ndst_end_val == 1 && dst_start_val - dop_end_val == 1 && db_start_val - dst_end_val == 1 && bdb_start_val - db_end_val == 1 && cel_start_val - bdb_end_val == 1 && dst_start_val < dst_end_val && db_start_val < db_end_val && dop_start_val < dop_end_val && cel_start_val < 100 && ndst_start_val < ndst_end_val && bdb_start_val < bdb_end_val &&  cel_end_val != cel_start_val && bdb_end_val != bdb_start_val && db_end_val != db_start_val && dst_end_val != dst_start_val && dop_end_val != dop_start_val && ndst_end_val != ndst_start_val ) {
-      console.log("DOJEBANY WARUNEK SPEŁNOIONY");
+      
       localStorage.clear();
       cookies(ndst_end_val, dop_start_val, dop_end_val, dst_start_val, dst_end_val, db_start_val, db_end_val, bdb_start_val, bdb_end_val, cel_start_val);
       const Toast = Swal.mixin({
@@ -1566,7 +1565,7 @@ function save_settings(){
     }
     else{
        
-       console.log(array_bledow.length)
+      
 
       if(parseInt(array_bledow.length) > 4 ){
          Swal.fire({
@@ -1607,7 +1606,7 @@ function save_settings(){
     }
 
 
-
+      
 
 
 function CheckValidation() {
@@ -1627,7 +1626,7 @@ function CheckValidation() {
 /* Otrzymana liczba punktów*/
 
  if (regex.test(liczba_punktow) == false ) {
-    console.log("niezgodne z regex");
+    
     $(input_1).addClass("bledne_dane");
     $(input_1).removeClass("dobre_dane");
  }
@@ -1637,7 +1636,7 @@ else if(liczba_punktow.length == 0){
  }
   
 else {
-    console.log("zgodne z regex");
+ 
     $(input_1).removeClass("bledne_dane");
     $(input_1).addClass("dobre_dane");
  }
@@ -1646,7 +1645,7 @@ else {
 
 /*Maksymalna liczba punktów */
  if (regex.test(max_punktów) == false ) {
-    console.log("niezgodne z regex");
+    
     $(input_2).addClass("bledne_dane");
     $(input_2).removeClass("dobre_dane");
    }
@@ -1657,7 +1656,7 @@ else {
 
  }
  else {
-    console.log("zzoden");
+   
     $(input_2).removeClass("bledne_dane");
     $(input_2).addClass("dobre_dane");
     
