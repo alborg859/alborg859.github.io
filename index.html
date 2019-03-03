@@ -712,15 +712,15 @@ $(info_button).ready(function(){
 $(info_button).click(function(){
 
    if(c == 0) { 
-      $(info_cont).removeClass("slide-in-right");
-      $(info_cont).addClass("slide-out-right");
+      $(info_cont).removeClass("slide-in-left");
+      $(info_cont).addClass("slide-out-left");
       c=1;
       $(info_cont).removeClass("div-close");
       
 
    } else if (c == 1) {
-      $(info_cont).addClass("slide-in-right");
-      $(info_cont).removeClass("slide-out-right");
+      $(info_cont).addClass("slide-in-left");
+      $(info_cont).removeClass("slide-out-left");
       $(info_cont).removeClass("div-close");
       c=0;
       
