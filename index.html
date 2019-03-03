@@ -21,29 +21,29 @@
     <div class="popup" id="popup-box">
 
         <div class="txt-p">Ocena niedostateczna</div>
-        <input readonly class="box-p" type="text" id="ocena1start" style="cursor: not-allowed;" value="0" onchange="this.value = this.value.replace(/%/g, '')"/>
+        <input  readonly class="box-p" type="tel" id="ocena1start" style="cursor: not-allowed;" value="0" onchange="this.value = this.value.replace(/%/g, '')"/>
         
 
          <i class="fas fa-minus"style="z-index: 22;"></i> 
-         <input class="box-p" type="text" id="ocena1end" onchange="this.value = this.value.replace(/%/g, '')"> <br>
+         <input type="tel" class="box-p" type="text" id="ocena1end" onchange="this.value = this.value.replace(/%/g, '')"> <br>
          
 
 
 
          <div class="txt-p">Ocena dopuszczająca</div>
-        <input class="box-p" type="text" id="ocena2start" onchange="this.value = this.value.replace(/%/g, '')" >
+        <input type="tel" class="box-p" type="text" id="ocena2start" onchange="this.value = this.value.replace(/%/g, '')" >
      
          <i class="fas fa-minus"style="z-index: 22;"></i> 
-         <input class="box-p" type="text" id="ocena2end" onchange="this.value = this.value.replace(/%/g, '')"> <br>
+         <input type="tel" class="box-p" type="text" id="ocena2end" onchange="this.value = this.value.replace(/%/g, '')"> <br>
          
 
 
         <div class="txt-p">Ocena dostateczna</div>
-        <input class="box-p" type="text" id="ocena3start" onchange="this.value = this.value.replace(/%/g, '')"> 
+        <input type="tel" class="box-p" type="text" id="ocena3start" onchange="this.value = this.value.replace(/%/g, '')"> 
         
 
         <i class="fas fa-minus"style="z-index: 22;"></i> 
-        <input class="box-p" type="text" id="ocena3end"onchange="this.value = this.value.replace(/%/g, '')"> <br>
+        <input type="tel" class="box-p" type="text" id="ocena3end"onchange="this.value = this.value.replace(/%/g, '')"> <br>
         
         
 
@@ -53,11 +53,11 @@
 
         <div class="txt-p">Ocena dobra</div>
         
-        <input class="box-p" type="text" id="ocena4start" onchange="this.value = this.value.replace(/%/g, '')">
+        <input type="tel" class="box-p" type="text" id="ocena4start" onchange="this.value = this.value.replace(/%/g, '')">
         
         
         <i class="fas fa-minus"style="z-index: 22;"></i>
-          <input class="box-p" type="text" id="ocena4end" onchange="this.value = this.value.replace(/%/g, '')"> <br>
+          <input type="tel" class="box-p" type="text" id="ocena4end" onchange="this.value = this.value.replace(/%/g, '')"> <br>
       
 
 
@@ -67,16 +67,16 @@
 
           
         <div class="txt-p">Ocena bardzo dobra</div>
-        <input class="box-p" type="text" id="ocena5start" onchange="this.value = this.value.replace(/%/g, '')">
+        <input type="tel" class="box-p" type="text" id="ocena5start" onchange="this.value = this.value.replace(/%/g, '')">
        
         <i class="fas fa-minus"style="z-index: 22;"></i>
-          <input class="box-p" type="text" id="ocena5end" onchange="this.value = this.value.replace(/%/g, '')"> <br>
+          <input type="tel" class="box-p" type="text" id="ocena5end" onchange="this.value = this.value.replace(/%/g, '')"> <br>
           
 
 
 
         <div class="txt-p">Ocena celująca</div>
-        <input class="box-p" type="text" id="ocena6start" onchange="this.value = this.value.replace(/%/g, '')"> 
+        <input type="tel" class="box-p" type="text" id="ocena6start" onchange="this.value = this.value.replace(/%/g, '')"> 
         
        
         <i class="fas fa-minus"style="z-index: 22;"></i> 
@@ -122,12 +122,12 @@
  
         <div  class="txt">Wpisz otrzymaną liczbe punktów</div>
         
-         <input maxlength="6" class="box" type="text" id="l.op" onchange="this.value = this.value.replace(/,/g, '.')" >
+         <input type="tel"  maxlength="6" class="box" type="text" id="l.op" onchange="this.value = this.value.replace(/,/g, '.')" >
         
         <br>
 
        <div class="txt">Wpisz maksymalną liczbe punktów</div>
-        <input maxlength="6" class="box" type="text" id="l.mp" onchange="this.value = this.value.replace(/,/g, '.')" >  <br>
+        <input type="tel" maxlength="6" class="box" type="text" id="l.mp" onchange="this.value = this.value.replace(/,/g, '.')" >  <br>
         
         <input type="button" class="box-button" value="OK" onclick="liczenie()" > <br>
         <i class="fas fa-cog fa-spin" onclick="closed()"  style="margin-top: 1%; font-size: 22px; color: white; cursor: pointer"></i>
@@ -301,6 +301,7 @@ function liczenie(){
          position: "top-start",
          allowOutsideClick: false,
          toast: true,
+         confirmButtonColor: "#6a446d"
    })
    array_glowny = [];
    }
@@ -1638,6 +1639,7 @@ function save_settings(){
   html: array_bledow.join( '<br>'),
   position: "top-end",
   toast: true,  
+  confirmButtonColor: "#6a446d",
 })
     array_bledow = [];
     }
