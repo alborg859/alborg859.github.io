@@ -107,10 +107,13 @@ border-radius: 50px;
 }
 
 .box {
-    padding-left: 2%;
-    padding-right: 2%;
-    padding-top:0.5%;
-    padding-bottom:0.5%;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+
+  
+
     border-radius: 50px;
     background-color: rgb(241, 241, 241);
     color: #2E353B;
@@ -121,8 +124,9 @@ border-radius: 50px;
     border-color: rgb(117, 80, 122);
     text-align: center;
     transition: 1s all;
-    margin-top: 0.5%;
-    margin-bottom:3%;
+    margin-top: 7px;
+    margin-bottom:30px;
+    min-height: 20px;
 
     
 }
@@ -218,10 +222,10 @@ border-radius: 50px;
 }
 
 .box-button {
-    padding-left: 2%;
-    padding-right: 2%;
-    padding-top:0.5%;
-    padding-bottom:0.5%;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
     border-radius: 50px;
     background-color: rgba(255, 255, 255, 0);
     color: rgb(223, 238, 255);
@@ -727,10 +731,10 @@ padding: 100px;
 
 @media(max-width:  580px){
   .box-button {
-    padding-left: 2%;
-    padding-right: 2%;
-    padding-top:1.5%;
-    padding-bottom:1.5%;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 2px;
+    padding-bottom: 2px;
     border-radius: 50px;
     background-color: rgba(255, 255, 255, 0);
     color: rgb(223, 238, 255);
@@ -762,7 +766,7 @@ padding: 100px;
     transition: 1s all;
     margin-top: 0.5%;
     margin-bottom:6%;
-
+    min-height: 38px;
     
 }
 
@@ -860,6 +864,7 @@ padding: 100px;
     vertical-align: center;   
     cursor: pointer;
     margin-bottom: 2%;
+    
   }
 
 
@@ -878,7 +883,9 @@ padding: 100px;
     text-align: center;
     transition: 1s all;
     margin-top: 0.5%;
-    margin-bottom:6%;
+    margin-bottom:3%;
+
+    min-height: 36px;
 
     
 }
