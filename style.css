@@ -8,6 +8,17 @@ font-family: 'Source Sans Pro', sans-serif;
 
     
 }
+
+
+
+.swal2-popup .swal2-styled .swal2-confirm{
+  background-color: rgb(71, 45, 73);
+}
+
+
+s
+
+
 .nightmode {
     background-color: #282E33;
 }

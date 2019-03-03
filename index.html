@@ -1545,7 +1545,6 @@ function save_settings(){
 
 
 
-
     if(dop_start_val - ndst_end_val == 1 && dst_start_val - dop_end_val == 1 && db_start_val - dst_end_val == 1 && bdb_start_val - db_end_val == 1 && cel_start_val - bdb_end_val == 1 && dst_start_val < dst_end_val && db_start_val < db_end_val && dop_start_val < dop_end_val && cel_start_val < 100 && ndst_start_val < ndst_end_val && bdb_start_val < bdb_end_val &&  cel_end_val != cel_start_val && bdb_end_val != bdb_start_val && db_end_val != db_start_val && dst_end_val != dst_start_val && dop_end_val != dop_start_val && ndst_end_val != ndst_start_val ) {
       
       localStorage.clear();
@@ -1567,7 +1566,7 @@ function save_settings(){
        
       
 
-      if(parseInt(array_bledow.length) > 4 ){
+      if(parseInt(array_bledow.length) > 2 ){
          Swal.fire({
          
          type: 'info',
