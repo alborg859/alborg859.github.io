@@ -241,7 +241,7 @@ function liczenie(){
    var gradeprc = document.getElementById("gradeprc");
 
    
-    
+    console.log(max_punktów);
 
    if(isNaN(liczba_punktow)) {
       
@@ -293,6 +293,11 @@ function liczenie(){
     glusher("Drugie pole nie może być puste!")
    }
 
+
+   
+
+
+
    if(array_glowny.length != 0){
       Swal.fire({
          type: 'error',
@@ -324,7 +329,10 @@ function liczenie(){
    /* ################# moment liczenia właściwy #############*/
    
    var wynik = Math.round((liczba_punktow / max_punktów)*100);
-  
+
+
+
+   
    /*########### Koniec funkcji liczenia ################*/
 
 
@@ -395,6 +403,16 @@ function liczenie(){
     gradetxt.innerHTML = ocena + "";
     gradeprc.innerHTML = wynik + '%';
 
+    if(liczba_punktow == 21 && max_punktów == 37){
+      Swal.fire({
+  type: 'success',
+  title: 'No hej śmieszku :)',
+  footer: 'Pozdrowienia dla klasy 1A ',
+  toast: true,
+  timer: 2000,
+})
+   }
+
     if(isNaN(max_punktów)) {
       
       
@@ -451,6 +469,9 @@ prog_6e.innerHTML = max_punktów + " pkt";
       
 
    /* ################# koniec określania oceny #############*/
+
+
+  
 }}
 
 
