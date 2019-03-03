@@ -11,12 +11,10 @@ font-family: 'Source Sans Pro', sans-serif;
 
 
 
-.swal2-popup .swal2-styled .swal2-confirm{
-  background-color: rgb(71, 45, 73);
+.swal2-popup .swal2-styled.swal2-confirm{
+  background-color: rgb(106, 68, 109);
 }
 
-
-s
 
 
 .nightmode {
@@ -45,12 +43,15 @@ s
   font-size: 30px;
   cursor: pointer;
   transition: 0.5s;
-  color: rgb(31, 19, 41)
+  color: rgb(31, 19, 41);
 }
 #info:hover{
   color: rgb(37, 27, 44);
   
 }
+
+
+
 
 .info_content{
   position: absolute;
@@ -172,6 +173,13 @@ border-radius: 50px;
 
 
 #trash:hover{
+  font-size: 30pt;
+  color: #c9aac5;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+#synk:hover {
   font-size: 30pt;
   color: #c9aac5;
   cursor: pointer;
@@ -764,145 +772,6 @@ padding: 100px;
 
 
 
-.jeden1{
-  width: 13px;
-  position: absolute;
-  left: 190px;
-  top: 131px;
-  border: none;
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.226);
-  
-  
-}
-
-.jeden2 {
-  width: 13px;
-  position: fixed;
-  left: 343px;
-  top: 69px;
-  border: none;
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.226);
-}
-
-
-
-
-.dwa1 {
-  width: 13px;
-  position: fixed;
-  left: 190px;
-  top: 231px;
-  border: none;
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.226);
-  
-}
-
-.dwa2 {
-
-
-  width: 13px;
-  position: fixed;
-  left: 343px;
-  top: 169px;
-  border: none;
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.226);
-
-}
-
-
-
-
-
-
-.trzy1 {
-
-  width: 13px;
-  position: fixed;
-  left: 190px;
-  top: 269px;
-  border: none;
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.226);
-  
-
-}
-.trzy2 {
-
-  width: 13px;
-  position: fixed;
-  left: 343px;
-  top: 269px;
-  border: none;
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.226);
-
-
-}
-
-.cztery1{
-  width: 13px;
-  position: fixed;
-  left: 190px;
-  top: 369px;
-  border: none;
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.226);
-  
-}
-.cztery2 {
-  width: 13px;
-  position: fixed;
-  left: 343px;
-  top: 369px;
-  border: none;
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.226);
-
-}
-
-.piec1 {
-  width: 13px;
-  position: fixed;
-  left: 190px;
-  top: 469px;
-  border: none;
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.226);
-}
-
-.piec2{
-  width: 13px;
-  position: fixed;
-  left: 343px;
-  top: 469px;
-  border: none;
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.226);
-}
-
-.szesc1{
-  width: 13px;
-  position: fixed;
-  left: 190px;
-  top: 569px;
-  border: none;
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.226);
-}
-
-.szesc2{
-  width: 13px;
-  position: fixed;
-  left: 343px;
-  top: 569px;
-  border: none;
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.226);
-}
 
 
 

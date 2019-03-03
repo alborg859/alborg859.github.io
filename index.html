@@ -8,10 +8,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" >
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet"> 
-    <title>Nowa Wersja</title>
+    <title>sukno</title>
 </head>
 <body>
-  Piotr Brenkol
+  
 <div class="center-popup" id="c-popup">
 
     <div class="popup" id="popup-box">
@@ -79,13 +79,19 @@
         <input readonly class="box-p" style="cursor: not-allowed;" value="100" type="text" id="ocena6end"  onchange="this.value = this.value.replace(/%/g, '')"> <br>
         
         <i id="trash" class="far fa-trash-alt" style="padding-left: 10px; font-size: 25px; float:right; display: absolute; " onclick="czyszczenie()"></i>
+        <i id="synk" class="fas fa-sync" style="padding-left: 10px; font-size: 23px; line-height: 26px; float:left; display: absolute; " onclick="SampleGrades()" ></i>
         <div style="clear: both;"></div>
         <input type="button" class="box-button-p" id="OKButton" value="OK" onclick="save_settings()" > 
         
     </div>
-    <input type="button" value="COOCK-IES" onclick="DefaultValGrades()">
-    <input type="button" value="masneprogi" onclick="SampleGrades()">
-    <input type="button" value="czyszczenie" onclick="czyszczenie()">
+
+
+<!--- 
+    <input type="button" value="localstorage" onclick="DefaultValGrades()">
+    <input type="button" value="samplegrades" onclick="SampleGrades()">
+    <input type="button" value="clear" onclick="czyszczenie()">
+
+    -->
 </div>
 
 
@@ -138,6 +144,13 @@
 
 $( document ).ready(function() {
    c = 0;
+
+   //consolelog
+   console.log('========================================================================');
+   console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+   console.log('             Created by Kacper Grobelny & Piotr Śliperski               ');
+   console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+   console.log('========================================================================');
 
 
 
@@ -1328,6 +1341,9 @@ function save_settings(){
     var ndst_end_val = document.getElementById ("ocena1end").value.trim();
 
       /*CEL START -! BDB END*/
+
+      
+
     if(cel_start_val - bdb_end_val != 1 && parseInt(bdb_end_val.length) != 0 && parseInt(cel_start_val.length) != 0){
          
          $(cel_start).addClass("shake-horizontal");
@@ -1342,7 +1358,12 @@ function save_settings(){
             }, 1000);
             $(bdb_end).removeClass("dobre_dane");
       $(bdb_end).addClass("bledne_dane");
-      pusher("Pomiędzy oceną celującą a bardzo dobrą jest przerwa"); 
+
+      if(isNaN(cel_start_val) || isNaN(bdb_end_val)) {
+         pusher("Okno zawiera niedozwolone znaki"); 
+      } else {  pusher("Pomiędzy oceną celującą a bardzo dobrą jest przerwa"); }
+
+     
     }
   
     /*BDB START -! DB END*/
@@ -1360,7 +1381,13 @@ function save_settings(){
             }, 1000);
             $(db_end).removeClass("dobre_dane");
       $(db_end).addClass("bledne_dane");
-      pusher("Pomiędzy oceną dobrą a bardzo dobrą jest przerwa"); 
+
+
+      if(isNaN(bdb_start_val) || isNaN(db_end_val)) {
+         pusher("Okno zawiera niedozwolone znaki"); 
+      } else {
+
+      pusher("Pomiędzy oceną dobrą a bardzo dobrą jest przerwa"); }
     }
 
     /*DB START -! DST END*/
@@ -1379,7 +1406,13 @@ function save_settings(){
       
       $(dst_end).removeClass("dobre_dane");
       $(dst_end).addClass("bledne_dane");
-      pusher("Pomiędzy oceną dobrą a dostateczną jest przerwa"); 
+
+
+      if(isNaN(db_start_val) || isNaN(dst_end_val)) {
+         pusher("Okno zawiera niedozwolone znaki"); 
+      } else {
+
+      pusher("Pomiędzy oceną dobrą a dostateczną jest przerwa");  }
     }
 
     /*DST START -! DOP END*/
@@ -1399,7 +1432,13 @@ function save_settings(){
      
       $(dop_end).removeClass("dobre_dane");
       $(dop_end).addClass("bledne_dane");
-      pusher("Pomiędzy oceną dopuszczającą a dostateczną jest przerwa"); 
+
+
+      if(isNaN(dst_start_val) || isNaN(dop_end_val)) {
+         pusher("Okno zawiera niedozwolone znaki"); 
+      } else {
+            
+      pusher("Pomiędzy oceną dopuszczającą a dostateczną jest przerwa"); }
     }
 
 
@@ -1570,7 +1609,7 @@ function save_settings(){
          Swal.fire({
          
          type: 'info',
-         title: 'Uwaga',
+         title: "Uwaga!",
          text: "Zresetowaliśmy twoje progi ze względu na za dużą ilość błędów.",
          position: "top-end",
          toast: true,
@@ -1591,10 +1630,9 @@ function save_settings(){
       Swal.fire({
          
   type: 'error',
-  title: 'Oops...',
+  title: 'Ups...',
   html: array_bledow.join( '<br>'),
   position: "top-end",
-  allowOutsideClick: false,
   toast: true,  
 })
     array_bledow = [];
