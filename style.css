@@ -48,7 +48,6 @@ height: 100%;
 }
 #info:hover{
   color: rgb(37, 27, 44);
-  
 }
 
 
@@ -830,6 +829,13 @@ padding: 100px;
   z-index: 24;
   cursor: pointer;
 
+}
+
+
+
+
+#info{
+  display: none;
 }
 
 }
