@@ -362,39 +362,75 @@ function liczenie(){
 
       var gradebox = document.getElementById("gradebox");
 
-    if(wynik <= cel_end_val && wynik >= cel_start_val) {
+    if(wynik < cel_end_val && wynik > cel_start_val) {
        ocena = 6;
 
        $(gradebox).addClass("shadow-inset-center");
-    } if(wynik > cel_end_val) {
+    } 
+    
+    else if(wynik == cel_start_val) {
+      ocena = 6 + "-";
+      $(gradebox).addClass("shadow-inset-center");
+    }
+
+    else if(wynik > cel_end_val) {
       ocena = 6;
       $(gradebox).addClass("shadow-inset-center");
     }
 
-    else if(wynik <= bdb_end_val && wynik >= bdb_start_val) {
+
+
+    else if(wynik < bdb_end_val && wynik > bdb_start_val) {
        ocena = 5;
        $(gradebox).addClass("shadow-inset-center");
     }
 
-    else if(wynik <= db_end_val && wynik >= db_start_val) {
+    if(wynik == bdb_end_val){ocena = 5+ "+"; 
+    $(gradebox).addClass("shadow-inset-center");} 
+    if(wynik == bdb_start_val ){ocena = 5 + "-"; 
+    $(gradebox).addClass("shadow-inset-center");}
+
+
+
+
+   else if(wynik < db_end_val && wynik > db_start_val) {
        ocena = 4;
        $(gradebox).addClass("shadow-inset-center");
     }
 
-    else if(wynik <= dst_end_val && wynik >= dst_start_val) {
+   else if(wynik == db_end_val){ocena = 4+"+";
+   $(gradebox).addClass("shadow-inset-center");
+   }
+   else if (wynik == db_start_val) {ocena = 4+"-";
+   $(gradebox).addClass("shadow-inset-center");
+   }
+
+    else if(wynik < dst_end_val && wynik > dst_start_val) {
        ocena = 3;
        $(gradebox).addClass("shadow-inset-center");
     }
+else if (wynik == dst_end_val) {ocena = 3+"+";$(gradebox).addClass("shadow-inset-center");} 
+else if (wynik == dst_start_val) {ocena = 3+"-";$(gradebox).addClass("shadow-inset-center");}
 
-    else if(wynik <= dop_end_val && wynik >= dop_start_val) {
+
+
+
+    else if(wynik < dop_end_val && wynik > dop_start_val) {
        ocena = 2;
        $(gradebox).addClass("shadow-inset-center");
     }
 
-    else if(wynik <= ndst_end_val && wynik >= ndst_start_val) {
+    else if (wynik == dop_end_val){ocena = 2+"+";$(gradebox).addClass("shadow-inset-center");}
+else if (wynik == dop_start_val) {ocena = 2+"-";$(gradebox).addClass("shadow-inset-center"); }
+
+
+    else if(wynik < ndst_end_val && wynik >= ndst_start_val) {
        ocena = 1;
        $(gradebox).addClass("shadow-inset-center");
-    } else {
+       
+    } 
+    else if (wynik == ndst_end_val){ocena = 1+"+";$(gradebox).addClass("shadow-inset-center");}
+    else {
       $(gradebox).removeClass("shadow-inset-center");
     }
 
